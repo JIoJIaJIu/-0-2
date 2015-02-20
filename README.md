@@ -42,5 +42,6 @@ or
 ## Explanation
 
 ### Frontend
+I would like use promises, but in UML was described callbacks.
 
 ### Server
