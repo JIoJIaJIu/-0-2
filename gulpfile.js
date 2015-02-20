@@ -5,7 +5,7 @@ var path = require('path');
 
 var OUTPUT = 'build';
 
-gulp.task('default', ['desktop', 'third-parties', 'build1']);
+gulp.task('default', ['desktop', 'third-parties', 'build desktop']);
 gulp.task('default2', ['mobile']);
 
 gulp.task('clean', function () {
@@ -27,12 +27,12 @@ gulp.task('third-parties', function () {
         .pipe(gulp.dest(path.join(OUTPUT, 'js')) );
 });
 
-gulp.task('build1', function () {
-    gulp.src(['src/config.js', 'src/services/**/*', 'src/controllersForPrototype1/**/*'])
+gulp.task('build desktop', function () {
+    gulp.src(['src/config.js', 'src/services/**/*', 'src/controllersForDesktop/**/*'])
         .pipe(concat('app.js'))
         .pipe(gulp.dest(OUTPUT));
 });
 
 gulp.task('watch1', ['default'], function () {
-    gulp.watch(['src/config.js', 'src/services/**/*', 'src/controllersForPrototype1/**/*'], ['build1']);
+    gulp.watch(['src/config.js', 'src/services/**/*', 'src/controllersForDesktop/**/*'], ['build1']);
 });
