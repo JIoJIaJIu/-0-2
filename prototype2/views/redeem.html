@@ -1,0 +1,33 @@
+<div id="redeem">
+    <div class="container">
+        <!-- business info -->
+        <div class="info">
+            <div class="business-title">{{business.name}}</div>
+            <div class="business-qr">
+                <img alt="QR Code" src="i/empty.gif" data-ng-src="{{redeem.qr}}"/>
+            </div>
+        </div>
+        <!-- end business info -->
+        <div class="details">
+            <div class="redeem">
+                <!-- redeem value -->
+                <div class="value-group">
+                    <div class="title">value</div>
+                    <span class="value">${{redeem.value}}</span><br/>
+                </div>
+                <!-- end redeem value -->
+                <!-- redeem discount -->
+                <div class="discount-group">
+                    <div class="title">discount</div>
+                    <span class="discount">{{redeem.discount}}%</span>
+                    <span class="discount-label">off</span>
+                </div>
+                <!-- end redeem discount -->
+            </div>
+
+            <!-- done button -->
+            <a href="#/home" class="btn btn-primary btn-large">Done</a>
+            <!-- end done button -->
+        </div>
+    </div>
+</div>

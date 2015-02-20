@@ -1,0 +1,72 @@
+<div id="details">
+    <div class="container">
+        <div class="business-entry" data-ng-click="expanded = !expanded">
+            <!-- title and logo -->
+            <div class="content entry-content">
+                <div class="business-logo">
+                    <img alt="Business Logo" src="i/empty.gif" data-ng-src="{{business.logo}}"/>
+                </div>
+                <div class="business-title">
+                    <div class="business-title-container">
+                        <div class="business-name">{{business.name}}</div>
+                        <div class="business-founder">{{business.founder | date:'MM/dd/yyyy hh:mm a'}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- end title and logo -->
+            <!-- map -->
+            <div class="map">
+                <div class="map-canvas"></div>
+                <!-- address -->
+                <div class="address">
+                    <p>{{business.address.address}}</p>
+                    <p>{{business.address.city}}, {{business.address.state}} {{business.address.index}}</p>
+                </div>
+                <!-- end address -->
+            </div>
+            <!-- end map -->
+            <!-- details -->
+            <div class="details-time">
+                <div class="group phone">
+                    <div class="group-title">Phone</div>
+                    <div class="group-value">{{business.phone}}</div>
+                </div>
+                <div class="group hours">
+                    <div class="group-title">Hours</div>
+                    <div class="group-value">{{business.hours.from}} - {{business.hours.to}}</div>
+                </div>
+                <div class="group activation">
+                    <div class="group-title">Activation Date</div>
+                    <div class="group-value">{{business.activation | date:'EEE, MMM d, yyyy'}}</div>
+                </div>
+                <div class="group expiration">
+                    <div class="group-title">{{business.expiration ? 'Expiration Date' : 'No Expiration'}}</div>
+                    <div class="group-value">{{business.expiration | date:'EEE, MMM d, yyyy'}}</div>
+                </div>
+            </div>
+            <!-- end details -->
+
+            <!-- auxiliary details -->
+            <div class="details-aux content">
+                <!-- description -->
+                <div class="group">
+                    <div class="group-label">Description</div>
+                    <textarea class="field" cols="30" rows="5" readonly="readonly">{{business.description}}</textarea>
+                </div>
+                <!-- end description -->
+                <!-- conditions -->
+                <div class="group">
+                    <div class="group-label">Conditions</div>
+                    <ul class="field conditions">
+                        <li data-ng-repeat="condition in business.conditions">
+                            {{condition}}
+                        </li>
+                    </ul>
+                </div>
+                <!-- end conditions -->
+            </div>
+            <!-- end auxiliary details -->
+        </div>
+    </div>
+</div>
+

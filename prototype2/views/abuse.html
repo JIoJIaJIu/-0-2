@@ -1,0 +1,31 @@
+<div id="abuse">
+    <div class="container">
+        <div class="content">
+            <!-- issue -->
+            <div class="group">
+                <label>
+                    <span class="group-label">Issue</span>
+                    <span class="field"><span class="input"><input name="" data-ng-model="issue"/></span></span>
+                </label>
+            </div>
+            <!-- end issue -->
+            <!-- description -->
+            <div class="group">
+                <label>
+                    <span class="group-label">Describe</span>
+                    <textarea class="field" cols="30" rows="11" data-ng-model="issueDescription"></textarea>
+                </label>
+            </div>
+            <!-- end description -->
+            <!-- controls -->
+            <div class="controls">
+                <a href="#/home" data-ng-href="#{{getHome()}}" class="btn btn-large">Cancel</a>
+                <button class="btn btn-primary btn-large send"
+                        data-ng-click="sendIssue()"
+                        data-ng-disabled="!issue">Send</button>
+            </div>
+            <!-- end controls -->
+        </div>
+
+    </div>
+</div>

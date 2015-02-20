@@ -1,0 +1,66 @@
+<!-- login page content -->
+<div id="login">
+    <div class="wrapper">
+        <header>
+            <!-- logo -->
+            <div class="logo vertical-align-subs">
+                <img src="i/logo-main.png" alt="LOGO"/>
+
+                <div class="logo-back-rect"></div>
+            </div>
+        </header>
+        <!-- End header -->
+
+        <div class="main-container">
+            <h2>LOGIN</h2>
+            <!-- input form -->
+            <form data-ng-submit="validate();" data-ng-class="{error: showError}">
+                <div class="error-message">Invalid Username / Password</div>
+                <fieldset>
+                    <div class="form-group vertical-align-subs">
+                        <div class="icon sprite sprite-grey-person"></div>
+                        <input id="userName" data-ng-focus="clearValidateError();" type="text" name="username" placeholder="Username"
+                               autocomplete="off"
+                               data-ng-model="username"/>
+                    </div>
+                    <div class="form-group vertical-align-subs">
+                        <div class="icon sprite sprite-lock"></div>
+                        <input id="password" data-ng-focus="clearValidateError();" type="password" name="password"
+                               placeholder="Password" autocomplete="off"
+                               data-ng-model="password"/>
+                    </div>
+                    <div class="remember-me-group vertical-align-subs">
+                        <div data-ng-click="toggleRememberMe();" data-ng-class="{checked:isRememberMe}"
+                             class="icon check-box  vertical-align-subs">
+                            <div class="icon sprite sprite-blue-tick"></div>
+                        </div>
+                        <span data-ng-click="toggleRememberMe();" >Remember me</span>
+                        <span class="forget-password"><a href="#/reset-password"> Forgot Password?</a></span>
+                    </div>
+                </fieldset>
+                <div class="controls">
+                    <input type="submit" class="hide">
+                    <a href="javascript:;" class="btn btn-login btn-primary btn-large" data-ng-click="validate();">Login</a>
+                </div>
+                <div class="sign-up-info">Don't have an account? <a href="#/sign-up-choose-account-type">Sign up now</a>
+                </div>
+            </form>
+            <!-- horizontal splitter above social login icons -->
+            <div class="sprite sprite-shadow-hspliter"></div>
+            <div class="social-media-box">
+                <div>Or, log in with Social Media</div>
+                <!-- Social Media icons -->
+                <div class="social-media-groups">
+                    <!-- facebook -->
+                    <a href="javascript:;" class="social-media sprite facebook-icon"> </a>
+                    <!-- twitter -->
+                    <a href="javascript:;" class="social-media sprite twitter-icon"> </a>
+                    <!-- linkedin -->
+                    <a href="javascript:;" class="social-media sprite linkedin-icon"> </a>
+                </div>
+            </div>
+        </div>
+        <!-- End .main-container -->
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+<div id="search">
+    <div class="search" data-ng-controller="search">
+        <!-- search query -->
+        <div class="search-query" data-ng-show="mode != 'searching'" data-ng-click="setMode('searching')">
+            {{query}}
+        </div>
+        <!-- end search query -->
+        <!-- search input -->
+        <div class="searching" data-ng-show="mode == 'searching'">
+            <button class="btn btn-success btn-small cancel-search" data-ng-click="setMode('order')">cancel</button>
+            <label class="input">
+                <span class="do-search" data-ng-click="doSearch()"></span>
+                <input data-ng-model="search" placeholder="Type your keyword" data-ng-keyup="checkEnter($event)"/>
+                <span class="clear" data-ng-click="search=''"></span>
+            </label>
+        </div>
+        <!-- end search input -->
+    </div>
+    <!-- business items -->
+    <div class="container">
+        <ul class="businesses">
+            <li data-ng-repeat="business in businesses" data-ng-include="'partials/businessEntry.html'"></li>
+        </ul>
+    </div>
+    <!-- end business items -->
+</div>

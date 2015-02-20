@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html data-ng-app="MomAndPop" data-ng-controller="page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title data-ng-bind="global.title">Mom & Pop Project</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/icons-sprites.css"/>
+    <link type="text/css" rel="stylesheet" href="css/screen.css"/>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-touch.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script src="js/ui-bootstrap-custom-0.12.0.js"></script>
+    <script src="js/ui-bootstrap-custom-tpls-0.12.0.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/controllers.js"></script>
+</head>
+<body data-ng-class="{'menu-opened': global.menuOpened, 'headless': global.headless }"
+      data-ng-swipe-right="global.menuOpened = false">
+    <!-- page header -->
+    <header data-ng-class="{'display-header': !global.headless}">
+        <a href="javascript:;" class="back" data-ng-show="!!global.back" data-ng-href="#/{{global.back}}"></a>
+
+        <div class="menu-toggle"
+             data-ng-click="global.menuOpened = !global.menuOpened"
+             data-ng-show="login"></div>
+        <h1 class="title">{{global.title}}</h1>
+    </header>
+    <!-- end page header-->
+
+    <!-- main menu -->
+    <aside class="menu" data-ng-include="'partials/menu.html'" data-ng-controller="menu"></aside>
+    <!-- end main menu -->
+
+    <div class="menu-shadow"></div>
+
+    <!-- main content-->
+    <div class="main-content"
+         data-ng-swipe-left="openMenu()"
+         data-ng-view></div>
+    <!-- end main content-->
+</body>
+</html>

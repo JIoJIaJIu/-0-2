@@ -1,0 +1,42 @@
+<div class="business-entry" data-ng-class="{expanded: expanded}">
+    <!-- title and logo -->
+    <div class="entry-content content" data-ng-click="expanded = !expanded">
+        <div class="toggle"></div>
+        <div class="business-logo">
+            <img alt="Business Logo" src="i/empty.gif" data-ng-src="{{business.logo}}"/>
+        </div>
+        <div class="business-title">
+            <div class="business-title-container">
+                <div class="business-name">{{business.name}}</div>
+                <div class="business-activation">Activation : {{business.activation | date:'MM/dd/yyyy hh:mm a'}}</div>
+            </div>
+        </div>
+    </div>
+    <!-- end title and logo -->
+
+    <!-- detail -->
+    <div class="entry-detail">
+        <div class="redeem-entry" data-ng-repeat="redeem in business.redeem">
+            <!-- discount -->
+            <div class="redeem">
+                <span class="value">${{redeem.value}}</span><br/>
+                <span class="discount">{{redeem.discount}}%</span>
+                <span class="discount-label">off</span>
+            </div>
+            <!-- end discount -->
+            <!-- redeem now -->
+            <div class="redeem-now">
+                <a class="btn btn-success btn-medium" href="javascript:;" data-ng-href="#/redeem/{{business.id}}/{{$index}}">
+                    Redeem Now
+                </a>
+            </div>
+            <!-- end redeem now -->
+            <!-- details link -->
+            <div class="details">
+                <a href="javascript:;" data-ng-href="#/details/{{business.id}}">Details</a>
+            </div>
+            <!-- end details link -->
+        </div>
+    </div>
+    <!-- end detail -->
+</div>

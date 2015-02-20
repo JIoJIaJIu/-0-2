@@ -1,0 +1,42 @@
+<div id="home">
+    <!-- search -->
+    <div class="search" data-ng-controller="search">
+        <!-- order selector -->
+        <div class="order" data-ng-show="mode == 'order'">
+            Order by
+            <div class="btn-group order-dropdown" data-dropdown="">
+                <button type="button" class="btn btn-primary btn-medium order-toggle dropdown-toggle" data-dropdown-toggle="">
+                    {{order.title || 'Select Order Type'}}
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" role="menu">
+                    <ul role="menu">
+                        <li class="item" data-ng-repeat="item in orders" data-ng-click="setOrder(item)">
+                            {{item.title}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <span class="search-toggle" data-ng-click="setMode('searching')"></span>
+        </div>
+        <!-- end order selector -->
+        <!-- search input -->
+        <div class="searching" data-ng-show="mode == 'searching'">
+            <button class="btn btn-success btn-small cancel-search" data-ng-click="setMode('order')">cancel</button>
+            <label class="input">
+                <span class="do-search" data-ng-click="doSearch()"></span>
+                <input data-ng-model="search" placeholder="Type your keyword" data-ng-keyup="checkEnter($event)"/>
+                <span class="clear" data-ng-click="search=''"></span>
+            </label>
+        </div>
+        <!-- end search input -->
+    </div>
+    <!-- end search -->
+    <!-- business items -->
+    <div class="container">
+        <ul class="businesses">
+            <li data-ng-repeat="business in businesses" data-ng-include="'partials/businessEntry.html'"></li>
+        </ul>
+    </div>
+    <!-- end business items -->
+</div>

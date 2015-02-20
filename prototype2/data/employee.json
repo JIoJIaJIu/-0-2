@@ -1,0 +1,7 @@
+{
+  "kind": "employee",
+  "name": "John Doe",
+  "avatar": "i/avatar.png",
+  "redeemed": 40,
+  "home": "/business-home"
+}

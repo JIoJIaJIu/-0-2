@@ -1,0 +1,103 @@
+<!-- sign up champion account -->
+<div class="sign-up sign-up-champion">
+    <div class="wrapper">
+        <div class="main-container">
+            <h2>CREATE AN ACCOUNT</h2>
+
+            <form name="signUpForm" data-ng-submit="validate();" data-ng-class="{error: showError}">
+                <!-- First Name , Last Name -->
+                <div class="form-group">
+                    <input id="firstName" name="firstName" placeholder="First Name"
+                           type="text" autocomplete="off" data-ng-model="firstName"
+                           data-ng-focus="focusInput();"
+                           data-ng-blur="looseFocus($event)" required/>
+                    <input id="lastName" name="lastName" placeholder="Last Name"
+                           data-ng-focus="focusInput();" data-ng-blur="looseFocus($event)"
+                           type="text" autocomplete="off" data-ng-model="lastName" required/>
+                </div>
+                <!--  email -->
+                <div class="form-group">
+                    <input id="mail" name="mail" type="email" placeholder="Email" autocomplete="off"
+                           data-ng-focus="focusInput();" data-ng-blur="looseFocus($event)" data-ng-model="mail"
+                           data-ng-pattern="/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/" required/>
+                </div>
+                <!--  password -->
+                <div class="form-group">
+                    <input id="password" name="password" type="password" placeholder="Password"
+                           data-ng-focus="focusInput();" data-ng-blur="looseFocus($event)" data-ng-model="password"
+                           autocomplete="off" required/>
+                </div>
+                <!--  confirm password  -->
+                <div class="form-group confirm-password-group">
+                    <input id="confirm-password" name="confirmPassword" type="password"
+                           data-ng-focus="focusInput();" data-ng-blur="looseFocus($event)"
+                           data-ng-model="confirmPassword" placeholder="Confirm your new password" autocomplete="off"
+                           required/>
+                    <!-- if confirm password match password, show tick around green circle -->
+                    <div data-ng-show="checkConfirmPassword()" class="circle vertical-align-subs">
+                        <div class="icon sprite sprite-white-tick"></div>
+                    </div>
+                </div>
+
+                <!-- interest -->
+                <div class="form-group check-form-group">
+                    <select data-ng-model="interest" id="select-interest" name="interest">
+                        <option value="" selected>Select Interest</option>
+                        <option value="reading">reading</option>
+                        <option value="reading">tea</option>
+                    </select>
+
+                    <div class="select-box-back-ground">
+                        <div></div>
+                    </div>
+                </div>
+
+                <!-- upload file  -->
+                <div class="form-group">
+                    <input id="uploadFile" data-ng-model="fileName"  class="selectedFile" data-ng-class="{'selectedFile':fileName}" type="text" placeholder="Upload Photo" disabled="disabled"/>
+
+                    <div class="fileUpload btn btn-default btn-inactive">
+                        <span>Browse</span>
+                        <input id="uploadBtn" type="file" class="upload"/>
+                    </div>
+                </div>
+
+                <!-- accept terms -->
+                <div class="accept-terms-group vertical-align-subs">
+                    <div data-ng-click="toggleAcceptTerms();" data-ng-class="{checked:isAcceptTerms}"
+                         class="icon check-box  vertical-align-subs">
+                        <div class="icon sprite sprite-blue-tick"></div>
+                    </div>
+                    <span class="term-info">I accept <a href="#/terms">Terms & Conditions</a></span>
+                </div>
+                <!-- validate error message -->
+                <div class="error-info" data-ng-show="showError">
+                    <span>{{validateErrorMsg}}</span>
+                </div>
+                <!-- register button -->
+                <div class="controls">
+                    <input type="submit" class="hide">
+                    <a href="javascript:;" class="btn btn-medium btn-primary btn-register"
+                       data-ng-class="{'btn-disable':isDisableRegister()}"
+                       data-ng-disabled="isDisableRegister()" data-ng-click="validate();">Register</a>
+                </div>
+            </form>
+
+            <div class="sprite sprite-shadow-hspliter"></div>
+            <!-- social media   -->
+            <div class="social-media-box">
+                <div>Or, log in with Social Media</div>
+                <div class="social-media-groups">
+                    <!-- facebook -->
+                    <a href="javascript:;" class="social-media sprite facebook-icon"> </a>
+                    <!-- twitter -->
+                    <a href="javascript:;" class="social-media sprite twitter-icon"> </a>
+                    <!-- linkedin -->
+                    <a href="javascript:;" class="social-media sprite linkedin-icon"> </a>
+                </div>
+            </div>
+
+        </div>
+        <!-- End .main-container -->
+    </div>
+</div>
