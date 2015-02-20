@@ -1,0 +1,16 @@
+[{
+    "giftCardId": "54c1b1a39d64e6004475efdf",
+    "amount": 100,
+    "redeemQRCode": "123456",
+    "redeemQRCodePicture": "picture text 1",
+    "timestamp": "2015-01-01T04:23:00.000Z",
+    "redeemedAmount": 250
+}, {
+    "giftCardId": "54c1b1a39d64e6004475efee",
+    "amount": 8,
+    "redeemQRCode": "654321",
+    "redeemQRCodePicture": "picture text 2",
+    "timestamp": "2015-01-01T04:23:00.000Z",
+    "redeemedAmount": 23
+
+}]

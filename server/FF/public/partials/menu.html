@@ -1,0 +1,54 @@
+<div class="user-info">
+    <!-- avatar -->
+    <div class="avatar">
+        <img src="i/empty.gif" alt="User Avatar" data-ng-src="{{user.avatar}}"/>
+    </div>
+    <!-- end avatar -->
+    <!-- greeting -->
+    <div class="greeting">
+        Hi, {{user.name}}
+    </div>
+    <!-- end greeting -->
+
+    <div data-ng-class="{'no-gift': !user.gift}">
+        <!-- gift cards table -->
+        <table class="gift-cards">
+            <thead>
+            <tr>
+                <th>Total<br/>Founder$hares</th>
+                <th>Total<br/>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{user.gift.cards}}</td>
+                <td>${{user.gift.amount}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- end gift cards table -->
+        <!-- redeemed gauge -->
+        <div class="redeem">
+            <div class="redeem-content">
+                <div data-ng-include="'partials/gauge.svg'"></div>
+                <div class="gauge-label">Founder<br/>$hares</div>
+                <div class="redeemed">{{user.redeemed}}% Redeemed</div>
+            </div>
+        </div>
+        <!-- end redeemed gauge -->
+    </div>
+</div>
+
+<nav class="menu-items">
+    <ul>
+        <!-- menu item -->
+        <li data-ng-repeat="item in menu">
+            <a class="menu-item {{item.class}}" href="javascript:;"
+               data-ng-href="#/{{item.href}}"
+               data-ng-click="menuClicked()">
+                {{item.title}}
+            </a>
+        </li>
+        <!-- end menu item -->
+    </ul>
+</nav>

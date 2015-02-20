@@ -1,0 +1,27 @@
+[
+  {
+    "title": "View Founder$hares",
+    "href": "home",
+    "class": "home"
+  },
+  {
+    "title": "Privacy",
+    "href": "privacy",
+    "class": "privacy"
+  },
+  {
+    "title": "Terms and Conditions",
+    "href": "terms",
+    "class": "terms"
+  },
+  {
+    "title": "Report Abuse",
+    "href": "abuse",
+    "class": "abuse"
+  },
+  {
+    "title": "Logout",
+    "href": "login",
+    "class": "logout"
+  }
+]

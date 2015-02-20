@@ -1,0 +1,32 @@
+[{
+    "_id": "54da325b5489203743520c01",
+    "firstName": "test",
+    "lastName": "heroku",
+    "email": "test@test.com",
+    "isFirstNamePublic": true,
+    "isLastNamePublic": true,
+    "isEmailPublic": true,
+    "isLocationPublic": true,
+    "isPicturePublic": true,
+    "passwordHash": "$2a$10$e9qNq8RSRmAgFuDteZMpAOlnbOq6Chf.GBep4fBL3ICf.rkpBVEeG",
+    "userRoles": [{
+        "businessId": "54c34b986d89a88616f2845a",
+        "role": "INDIVIDUAL_USER"
+    }]
+},
+{
+    "_id": "54da325b5489203743520c98",
+    "firstName": "test2",
+    "lastName": "heroku2",
+    "email": "test2@test.com",
+    "isFirstNamePublic": false,
+    "isLastNamePublic": false,
+    "isEmailPublic": false,
+    "isLocationPublic": false,
+    "isPicturePublic": false,
+    "passwordHash": "$2a$10$e9qNq8RSRmAgFuDteZMpAOlnbOq6Chf.GBep4fBL3ICf.rkpBVEeG",
+    "userRoles": [{
+        "businessId": "54c1b1a39d64e6006666aaab",
+        "role": "BUSINESS_ADMIN"
+    }]
+}]

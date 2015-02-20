@@ -1,0 +1,13 @@
+[{
+    "_id": "54dabec2cd2fea97631b5a94",
+    "userId": "54da325b5489203743520c01",
+    "comment": "Hello I am a test comment 1",
+    "giftCardOfferId": "54dab21fd8c188f731cb8f33",
+    "timestamp": "2015-02-11T02:30:26.294Z"
+}, {
+    "_id": "54dabec2cd2fea97631b5a95",
+    "userId": "54da325b5489203743520c01",
+    "comment": "Hello I am a test comment 2",
+    "giftCardOfferId": "54dab21fd8c188f731cb8f33",
+    "timestamp": "2015-02-11T02:30:26.294Z"
+}]

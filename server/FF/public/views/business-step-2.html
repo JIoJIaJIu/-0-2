@@ -1,0 +1,56 @@
+<div id="qr-scan" class="business-step">
+    <div class="container">
+        <div class="content">
+            <!-- steps -->
+            <div class="steps">
+                <span class="step-point step-done">1</span>
+                <span class="step-line step-done"></span>
+                <span class="step-point step-done">2</span>
+                <span class="step-line"></span>
+                <span class="step-point">3</span>
+            </div>
+            <!-- end steps -->
+
+            <h2>Scan QR code</h2>
+            <p>Scan the QR code by taking a picture<br/>
+                with the camera.</p>
+
+            <!-- content before scan -->
+            <div data-ng-show="!scannedQR">
+                <!-- iPhone qr image input form -->
+                <form name="qr-post-form">
+                    <label class="scan-camera" data-ng-show="!userMedia">
+                        Tap to begin scanning
+                        <input type="file" capture="camera" accept="image/*" id="camera-input" name="qrCode"/>
+                    </label>
+                </form>
+                <!-- end iPhone qr image input form -->
+                <!-- Android qr image video -->
+                <div class="qr-reader" data-ng-show="userMedia">
+                    <video id="qr-reader-showcast" muted autoplay></video>
+                    <canvas id="qr-canvas"></canvas>
+                </div>
+                <!-- end Android qr image video -->
+            </div>
+            <!-- end content before scan -->
+            <!-- content after scan -->
+            <div class="scanned" data-ng-show="scannedQR">
+                QR Code was scanned<br/>
+                successfully ...
+            </div>
+            <!-- end content after scan -->
+
+            <!-- controls -->
+            <div class="controls">
+                <button class="btn btn-large" data-ng-click="cancelRedeem()">Cancel</button>
+                <button class="btn btn-primary btn-large next" data-ng-click="goConfirm()"
+                        data-ng-disabled="!scannedQR">Continue</button>
+            </div>
+            <!-- end controls -->
+        </div>
+    </div>
+</div>
+
+<!-- jsqrcode lib -->
+<script type="text/javascript" src="js/jsqrcode.js"></script>
+<!-- end jsqrcode lib -->

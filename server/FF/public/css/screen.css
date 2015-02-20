@@ -1,0 +1,2502 @@
+@charset "utf-8";
+/* reset and common rules */
+html, body, ul, li, p, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.25;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    resize: vertical;
+    -webkit-appearance: none;
+}
+
+.field {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 3px;
+    width: 100%;
+    background: #f2f2f2;
+    border: 1px solid #c2c2c2;
+    overflow: auto;
+}
+
+.field:focus {
+    outline: none;
+}
+
+body {
+    min-height: 100%;
+    min-width: 320px;
+    position: relative;
+    background: #f2f2f2;
+}
+
+.input {
+    display: block;
+}
+
+.input input {
+    width: 100%;
+    font-weight: normal;
+    border: 0;
+    background: none;
+    outline: none;
+}
+
+.group label {
+    display: block;
+    margin-bottom: 0;
+}
+
+.group-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* buttons */
+.btn {
+    vertical-align: top;
+}
+
+.btn, .btn:hover {
+    background-color: #555555;
+    box-shadow: inset 0 -5px rgba(0,0,0,0.3);
+    border: 0;
+    color: #ffffff;
+}
+
+.btn:focus,
+.btn:active,
+.btn:hover,
+.btn:active:focus {
+    outline: none;
+    color: #ffffff;
+}
+
+.btn.btn-success {
+    background-color: #4b8f00;
+}
+
+.btn.btn-primary {
+    background-color: #125579;
+}
+
+.btn:active {
+    box-shadow: none;
+}
+
+.btn.btn-small {
+    height: 30px;
+    padding-top: 3px;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.btn.btn-medium {
+    height: 40px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.btn.btn-large {
+    height: 50px;
+    line-height: 34px;
+    font-size: 18px;
+}
+
+/* dropdown menu */
+.dropdown-menu {
+    width: 100%;
+}
+
+.dropdown-menu .item {
+    padding: 5px 20px;
+    height: 30px;
+    line-height: 20px;
+}
+
+.dropdown-menu .item:active {
+    background: #e1e1e1;
+}
+
+/* containers */
+.container {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: auto;
+}
+
+.main-content {
+    height: 100%;
+    overflow: auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+body.headless .main-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.content {
+    padding: 10px;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+/* headers */
+body > header {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    height: 40px;
+    background: #007035;
+    text-align: center;
+    font-size: 18px;
+}
+
+    body > header .title {
+        font-size: 18px;
+        color: #ffffff;
+        margin: 0;
+        line-height: 40px;
+    }
+
+    body > header .back {
+        position: absolute;
+        left: 10px;
+        top: 0;
+        width: 30px;
+        height: 40px;
+        background: url('../i/back.png') center 7px no-repeat;
+    }
+
+    body > header .menu-toggle {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        width: 30px;
+        height: 40px;
+        background: url('../i/menu.png') left 10px no-repeat;
+    }
+
+    body > header.display-header {
+        display: block;
+    }
+
+    body.headless > header {
+        display: none;
+    }
+
+/* menu */
+.menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    right: -262px;
+    width: 262px;
+    background: #f2f2f2;
+    box-shadow: 0 0 20px rgba(34, 30, 31, 0.75);
+    overflow: auto;
+}
+
+    .menu-shadow {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 7;
+        background: rgba(0,0,0,0.3);
+        opacity: 0;
+        -webkit-transition: opacity 300ms;
+        transition: opacity 300ms;
+    }
+
+    .menu .menu-items {
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .menu .menu-item {
+        display: block;
+        height: 45px;
+        line-height: 45px;
+        padding-left: 60px;
+        font-size: 16px;
+        background: #ffffff url('../i/menu-items.png') no-repeat;
+        color: #333333;
+        box-shadow: inset 0 1px #dddddd, inset 0 -1px #dddddd;
+    }
+
+    .menu .menu-item:focus,
+    .menu .menu-item:hover {
+        text-decoration: none;
+    }
+
+    .menu .menu-item:active {
+        box-shadow: inset 5px 0 #4b8f00, inset 0 1px #dddddd, inset 0 -1px #dddddd;
+        background-color: #f2f2f2;
+        text-decoration: none;
+    }
+
+    .menu .menu-item.home {
+        background-position: 20px 9px;
+    }
+
+    .menu .menu-item.privacy {
+        background-position: 20px -36px;
+        height: 44px;
+    }
+
+    .menu .menu-item.terms {
+        background-position: 20px -80px;
+        height: 44px;
+    }
+
+    .menu .menu-item.abuse {
+        background-position: 20px -123px;
+        height: 44px;
+    }
+
+    .menu .menu-item.logout {
+        background-position: 20px -169px;
+    }
+
+body {
+    -webkit-transition: margin 300ms;
+    transition: margin 300ms;
+}
+
+    body.menu-opened {
+        margin: 0 262px 0 -262px;
+    }
+
+    body.menu-opened .menu,
+    body.menu-opened .menu-shadow {
+        display: block;
+        opacity: 1;
+    }
+
+
+.hide {
+    display: none;
+}
+
+a {
+    background: transparent;
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+img {
+    border: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/******** common ***********/
+/*vertical align child */
+.vertical-align-subs
+{
+    position: relative;
+}
+
+.vertical-align-subs > *
+{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+
+}
+
+.icon
+{
+    display: inline-block;
+}
+
+/* blur filer */
+.blur{
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    filter: url(blur.svg#blur);
+}
+
+/* reset the orange border in chrome mobile and shadow in safari mobile */
+textarea:focus, textarea, input, input:focus{
+    outline: 0;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* reset style for safari mobile */
+input:disabled
+{
+    opacity: 1;
+}
+
+/* reset for safari */
+input
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/***** common style for buttons *****/
+/* common button */
+/*.btn*/
+/*{*/
+    /*display: inline-block;*/
+    /*border-radius: 5px;*/
+    /*background-color: rgb(18, 85, 121);*/
+    /*box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.3);*/
+    /*height: 50px;*/
+    /*font-size: 18px;*/
+    /*color: rgb(255, 255, 255);*/
+    /*text-align: center;*/
+    /*line-height: 47.5px;*/
+    /*vertical-align: middle;*/
+/*}*/
+
+/* while button is active, in other word, for mobile browser be tapped */
+/*.btn:active*/
+/*{*/
+    /*box-shadow: none;*/
+/*}*/
+
+/* for cancel button or inactive button */
+.btn-cancel, .btn-inactive
+{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: rgb(85, 85, 85);
+    box-shadow: inset 0px -5px 0px 0px rgba(0, 0, 0, 0.3);
+    height: 50px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 47.5px;
+    vertical-align: middle;
+}
+
+/* when cancel button is active */
+.btn-cancel:active
+{
+    box-shadow: none;
+}
+
+/* check box */
+.check-box
+{
+    width: 17px;
+    height: 17px;
+    line-height: 17px;
+    border: 1px solid #c2c2c2;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+/* set tick in check box be center */
+.check-box > div
+{
+    position: absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    display: none;
+}
+
+/* tick in check box */
+.checked > div
+{
+    display: inline-block;
+}
+
+/* wrapper */
+.wrapper
+{
+    height: 100%;
+    min-height: 100%;
+}
+
+/****** for login page ******/
+#login, .sign-up
+{
+    min-height: 100%;
+    background-color: #ffffff; /* for old browser*/
+    background: -webkit-linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%);
+    background: -moz-linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%);  /* FF3.6+ */
+    background: -webkit-linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%); /* W3C */
+    padding-bottom: 17px;
+    line-height: 1;
+}
+
+/* header iin login page */
+#login header
+{
+    padding-top: 30px;
+}
+
+/*logo in login page  */
+header .logo
+{
+    margin-bottom: 19px;
+    height: 100px;
+    position: relative;
+    text-align: center;
+}
+
+/* set logo img z-index above grey rectangle  */
+header .logo img
+{
+    z-index: 1;
+}
+
+/* grey rectangle at the back of logo image */
+header .logo-back-rect
+{
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    background-color: #d7d7d7;
+    z-index: 0;
+}
+
+/* set the form of login */
+#login form
+{
+    width: 80.63%;
+    margin:  0 auto;
+    text-align: center;
+}
+
+/* set title */
+#login .main-container h2, .sign-up h2
+{
+    text-align: center;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+    margin-bottom: 21px;
+    vertical-align: middle;
+}
+
+/* set input group style of form */
+#login .form-group
+{
+    border: 1px solid #c2c2c2;
+    padding-left: 10px;
+    border-radius: 2px;
+    background-color:  #f2f2f2;
+    margin-bottom: 9px;
+    height: 43px;
+    vertical-align: middle;
+}
+
+/* set child elements of form group */
+#login .form-group > *, .remember-me-group > *
+{
+    float: left;
+    display: inline-block;
+}
+
+/* set remember me elements group in login page */
+.remember-me-group
+{
+    height: 17px;
+}
+
+/* set remember me check box */
+.remember-me-group .check-box
+{
+    margin-right:4px;
+}
+
+/* set the a element style in remember me group */
+.remember-me-group .forget-password, a
+{
+    font-family: arial, helvetica, sans-serif;
+    color:  #125579;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* set forget password text */
+.remember-me-group .forget-password
+{
+    float: right;
+}
+
+/* set input element style for form group */
+#login .form-group  input
+{
+    border: 0;
+    background-color: transparent;
+    margin-left: 9px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 20px;
+    vertical-align: middle;
+    color: #333333;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+/***** setting for placeholder for input element *****/
+/* WebKit browsers */
+input::-webkit-input-placeholder {
+    color: #939393 ;
+    font-style: italic;
+}
+
+/* older firefox browsers */
+input:-moz-placeholder {
+    color: #939393 ;
+    font-style: italic;
+}
+
+/* firefox browsers */
+input::-moz-placeholder {
+    color: #939393 ;
+    font-style: italic;
+}
+
+/* IE browser */
+input:-ms-input-placeholder {
+    color: #939393 ;
+    font-style: italic;
+}
+
+/* login button */
+.btn-login
+{
+    width: 101.16%;
+}
+
+/* button group in login page */
+#login .controls
+{
+    margin-top: 19px;
+    margin-bottom: 9px;
+}
+
+/* sign up information in login page */
+.sign-up-info
+{
+    vertical-align: middle;
+}
+
+/* horizontal splitter */
+.sprite-shadow-hspliter
+{
+    margin: 40px auto 0 auto;
+
+}
+
+/* social media box */
+div.social-media-box
+{
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Set style of text for Social media tips */
+div.social-media-box > div:first-child
+{
+    color:  #333333;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+}
+
+/* social media group */
+.social-media-groups
+{
+    margin-top: 20px;
+    font-size: 0;
+}
+
+/* social media */
+.social-media
+{
+    display: inline-block;
+    margin-left: 39px;
+}
+
+/* the first social media icon without left margin */
+.social-media:first-child
+{
+    margin-left: 0;
+}
+
+/* facebook media icon, when be tapped*/
+.facebook-icon:active {
+    width: 41px;
+    height: 40px;
+    background-position: -166px -79px;
+}
+
+/* facebook media icon */
+.facebook-icon {
+    width: 41px;
+    height: 40px;
+    background-position: -207px -119px;
+}
+
+/* twitter media icon be tapped */
+.twitter-icon:active {
+    width: 41px;
+    height: 40px;
+    background-position: -762px -357px;
+}
+
+/* twitter media icon */
+.twitter-icon {
+    width: 41px;
+    height: 40px;
+    background-position: -803px -397px;
+}
+
+/* linkedin media icon be tapped */
+.linkedin-icon:active {
+    width: 40px;
+    height: 39px;
+    background-position: -306px -216px;
+}
+
+/* grey linkedin media icon*/
+.linkedin-icon {
+    width: 40px;
+    height: 39px;
+    background-position: -346px -255px;
+}
+
+
+/* error message is hidden by default in login page */
+.error-message
+{
+    color:  #ff0101;
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 8px;
+    visibility: hidden;
+}
+
+/* show error message in login form */
+.error .error-message
+{
+    visibility: visible;
+}
+
+/* when login error occur, set red border to input group */
+#login form.error .form-group
+{
+    border: 1px solid #ff0000;
+}
+
+
+/************* business home *****************/
+#business-home, .business-home
+{
+    padding: 10px;
+    min-height: 100%;
+}
+
+/* set header in business home */
+.business-home header
+{
+    position: fixed;
+    background-color:#007035;
+    height: 42px;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+/* for business home menu header, divide to 3 columns */
+.business-home header > div
+{
+    float: left;
+    min-height: 50%;
+}
+
+/* set first and last column width */
+.business-home header > div:nth-child(1),
+.business-home header > div:nth-child(3)
+{
+    width: 15%;
+}
+
+/* the middle column, the middle column is generally placed tittle*/
+.business-home header > div:nth-child(2)
+{
+    width: 70%;
+}
+
+/* menu title */
+.business-home .menu-title
+{
+    color: #ffffff;
+    font-size: 18px;
+    height: 1em;
+    line-height: 1em;
+    vertical-align: middle;
+}
+
+/* set hamburger menu in menu */
+.business-home header .sprite-hamburger-menu
+{
+    float: right;
+    margin-right: 19px;
+}
+
+/********** set main content ************/
+/* set main container of business home */
+.business-home .main-container
+{
+    padding-top: 42px;
+    height: 100%;
+    min-height:  100%;
+    background-color: #f2f2f2;
+}
+
+/* set content wrapper */
+.content-wrapper
+{
+    width: 100%;
+    background-color: #fff;
+
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+/* set the title of content wrapper */
+#business-home .content-wrapper h2
+{
+    padding-top: 10px;
+    margin: 0 auto 18px auto;
+    color:  #333333;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 175px;
+    line-height: 20px;
+}
+
+/* set the arrow down group */
+.content-wrapper .arrow-group
+{
+    height: 337px;
+    position: relative;
+    margin-bottom: 14px;
+}
+
+/* set the arrow down */
+.arrow-down
+{
+    width: 25px;
+    height: 337px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+/* set upper part of arrow down */
+.arrow-down > div:first-child
+{
+    height: 320px;
+    width: 11px;
+    margin: 0 auto;
+    background-color: #d7d7d7;
+}
+
+/* set bottom part of arrow down */
+.arrow-down > div:last-child
+{
+    width: 0;
+    height: 0;
+    border-left: 12.5px solid transparent;
+    border-right: 12.5px solid transparent;
+    border-top: 19px solid #d7d7d7;
+}
+
+/************ set sequence ***********/
+.step-seq-group {
+    position: absolute;
+}
+
+.step-seq-group.step-1,
+.step-seq-group.step-3 {
+    left: 50%;
+    margin-left: -20px;
+}
+
+.step-seq-group.step-1 {
+    top: 25px;
+}
+
+.step-seq-group.step-2 {
+    top: 130px;
+    right: 50%;
+    margin-right: -20px;
+}
+
+.step-seq-group.step-3 {
+    top: 235px;
+}
+
+/* step sequence number */
+.step-seq {
+    position: relative;
+    z-index: 5;
+}
+
+/* the circle of sequence number */
+.step-seq  .circle
+{
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #4b8f00;
+    border: 5px  solid #ffffff;
+}
+
+/* set number text in sequence icon */
+.step-seq  .circle > span
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    width: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/******* set the step icon with text ********/
+.step-icon-with-text
+{
+    width: 114px;
+    z-index: 2;
+}
+
+/* set icon in step icon group */
+.step-icon-with-text > div:first-child
+{
+    margin: 0 auto;
+
+    margin-top: 2px;
+}
+
+/* set text in step icon group */
+.step-icon-with-text .icon-label
+{
+    color:  #333333;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 8px;
+    position: relative;
+
+    line-height: 16px;
+}
+
+/* set all elements in float left */
+.step-seq-group > div
+{
+    float: left;
+}
+
+/* connector for common used */
+.connector {
+    height: 5px;
+    background-color: #d7d7d7;
+    position: absolute;
+    z-index: 0;
+    float: none;
+    top: 18px;
+    width: 39px;
+    left: 19px;
+}
+
+.step-2 .connector {
+    right: 25px;
+    left: auto;
+}
+
+/* set step 1 group position */
+/*.content-wrapper .step-1*/
+/*{*/
+    /*left: 50%;*/
+    /*top: 22px;*/
+
+    /*-webkit-transform: translateX(-20px);*/
+/*}*/
+
+/* second step 3 group position */
+/*.content-wrapper .step-2*/
+/*{*/
+    /*right: 50%;*/
+    /*top: 132.5px;*/
+
+    /*-webkit-transform: translateX(20px);*/
+/*}*/
+
+/* connector for step2, it is on the left */
+/*#business-home .content-wrapper .step-2 .connector*/
+/*{*/
+    /*width: 52px;*/
+    /*left: auto;*/
+    /*right: 20px;*/
+/*}*/
+
+/* set  icon with text for step 2 */
+/*.content-wrapper .step-2 .step-icon-with-text*/
+/*{*/
+    /*width: 128px;*/
+
+    /*top: -1px;*/
+/*}*/
+
+/* set step-2 label text */
+/*.content-wrapper .step-2 .icon-label*/
+/*{*/
+    /*margin-top: 2px;*/
+/*}*/
+
+/* set step 3 group position */
+/*.content-wrapper .step-3*/
+/*{*/
+    /*left: 50%;*/
+    /*top: 242px;*/
+
+    /*-webkit-transform: translateX(-20px);*/
+/*}*/
+
+/*.content-wrapper .step-3 .step-icon-with-text*/
+/*{*/
+    /*margin-top: 0px;*/
+/*}*/
+
+/* redeem founder share button */
+.btn-redeem-founder-share
+{
+    display: block;
+    margin: 0 auto;
+    width: 87%;
+}
+
+/* footer clear */
+.footer-clear
+{
+    height: 15px;
+}
+
+/* flex wrapper */
+.flex-wrapper
+{
+    min-height: 93.75%;
+    border-radius: 5px;
+    min-width: 300px;
+    margin: 10px;
+    background-color: #fff;
+}
+
+/* business step 1 form group */
+#business-step-1 .form-group
+{
+    margin-top: 70px;
+    text-align: center;
+
+    font-size: 16px;
+}
+
+/* input in business step 1 form group */
+#business-step-1 .form-group input
+{
+    width: 62%;
+    height: 33px;
+    border:  1px solid #c2c2c2;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+    margin-left: 5px;
+
+    background-color: #f2f2f2;
+
+    font-size: 16px;
+}
+
+/* setp sequence that are inactive */
+.step-seq.inactive  .circle
+{
+    background-color: #959595;
+}
+
+/* button group for business step 1*/
+#business-step-1 .controls
+{
+    margin-top: 90px;
+    text-align: justify;
+    font-size: 0;
+}
+
+
+/********* setting for placeholder in business step 1 *************/
+/* also reuse by username and password input field for login page */
+/* for chrome and safari */
+#userName::-webkit-input-placeholder ,  #password::-webkit-input-placeholder , #business-step-1 input::-webkit-input-placeholder {
+    font-style: normal;
+}
+
+/* for older firefox */
+#userName:-moz-placeholder ,
+#password:-moz-placeholder, #business-step-1 input:-moz-placeholder {
+    font-style: normal;
+}
+
+/* for firefox */
+#userName::-moz-placeholder ,  #password::-moz-placeholder ,
+#business-step-1 input::-moz-placeholder {
+    font-style: normal;
+}
+
+/* for IE */
+#userName:-ms-input-placeholder ,  #password:-ms-input-placeholder ,
+#business-step-1 input:-ms-input-placeholder {
+    font-style: normal;
+}
+
+/*Disable spin buttons on input type="number" */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* set error input or form group error style */
+#business-step-1 .form-group input.ng-invalid, .sign-up .form-group input.ng-invalid.ng-dirty, .sign-up .form-group input.invalid,
+#login.reset-password-step1 form .form-group.invalid,
+#login.reset-password-step2 form .form-group.invalid
+{
+    border: 1px solid #ff0000;
+}
+
+/* set error info for step 1 */
+#business-step-1 .error-info
+{
+    color: #ff0101;
+    font-size: 12px;
+    text-align: left;
+    position: absolute;
+    margin-top: 20px;
+    width: 290px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a:active
+{
+    font-weight: bold;
+}
+
+
+/* for account type */
+.account-type-group
+{
+    font-size: 0;
+    text-align: center;
+    height: 189px;
+}
+
+/* account type icon with label */
+.account-type-icon-with-label
+{
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 40px;
+    color: #333333;
+    vertical-align: top;
+}
+
+/* set first account type icon with label  no left margin */
+.account-type-icon-with-label:first-child
+{
+    margin-left: 0;
+}
+
+/* circle in account type icon with label  */
+.account-type-icon-with-label .circle
+{
+    border-radius: 50%;
+    background-color: rgb(85, 85, 85);
+    box-shadow: inset 0px 5px 0px 0px rgba(0, 0, 0, 0.3);
+    width: 100px;
+    height: 100px;
+    padding-top: 20px;
+}
+
+/* when circle in account type icon with label is taped */
+.account-type-icon-with-label .circle:active
+{
+    background-color: rgb(75, 143, 0);
+    box-shadow: inset 0px 5px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* change icon label at the same time when circle is active*/
+.account-type-icon-with-label .circle:active + .icon-label
+{
+    color: rgb(75, 143, 0);
+}
+
+/* set person icon in circle be center */
+.account-type-icon-with-label .circle > div
+{
+    margin: 0 auto;
+}
+
+/* icon label for account type icon*/
+.account-type-icon-with-label .icon-label
+{
+    margin-top: 8px;
+}
+
+/* tittle in choose account type page  */
+#login.login-sign-up .main-container h2
+{
+    margin-bottom: 67px;
+}
+
+
+/***************** sign up page ********************/
+.sign-up  .main-container
+{
+    padding-top: 16px;
+}
+
+/* title for sign up */
+.sign-up h2
+{
+    height: 34px;
+    border-bottom: 1px solid #c2c2c2;
+    width: 87.5%;
+    margin: 0 auto;
+    line-height: 34px;
+    vertical-align: middle;
+}
+
+/* form in sign up page */
+.sign-up form
+{
+    width: 87.5%;
+    padding-left: 10px;
+    margin: 0 auto;
+}
+
+/* set error message in sign up page */
+/* also reuse by reset password step 1, reset password step 2 */
+.sign-up form .error-info, .reset-password-step1 .error-info,  .reset-password-step2 .error-info {
+    color: #ff0101;
+    font-size: 12px;
+    text-align: left;
+}
+
+.sign-up form .error-info {
+    padding-bottom: 10px;
+}
+
+/* form group in sign up page */
+.sign-up .form-group
+{
+    width: 95.56%;
+    margin-top: 9px;
+    margin-bottom: 0;
+    font-size: 0;
+    color: #333333;
+    position: relative;
+    height: 37px;
+}
+
+/* input in form group */
+.sign-up .form-group input
+{
+    border: 1px solid  rgb(194, 194, 194) ;
+    border-radius: 2px;
+    background-color: rgb(242, 242, 242);
+    height: 37px;
+    padding-left: 8px;
+    font-size: 14px;
+    width: 100%;
+    line-height: 16px;
+}
+
+/* set first Name text field */
+.sign-up .form-group  #firstName
+{
+    width: 54.62%;
+}
+
+/* last name text field */
+.sign-up .form-group  #lastName
+{
+    width: 41.92%;
+    margin-left: 3.46%;
+}
+
+/* reset password placeholder */
+.sign-up .form-group #password::-webkit-input-placeholder
+{
+    font-style: italic;
+}
+
+/* select box in form group */
+.sign-up .form-group select
+{
+    width: 100%;
+    -webkit-appearance: none;
+    height: 37px;
+    border: 1px solid  rgb(194, 194, 194) ;
+    border-radius: 3px;
+    background-color: transparent;
+    position: relative;
+    padding-left: 9px;
+    z-index: 1;
+    font-size: 14px;
+}
+
+/* when it is select box is tapped, set the background to active style.*/
+.sign-up .form-group select:active + .select-box-back-ground
+{
+    box-shadow: none;
+}
+
+/*  form group in sign up page */
+.sign-up .form-group
+{
+    position: relative;
+    text-align: left;
+}
+
+/* select box back ground */
+.sign-up .form-group .select-box-back-ground
+{
+    background-color: #125579;
+    box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 39px;
+    height: 36px;
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    top:0;
+    right: 0;
+    z-index: 0;
+}
+
+/* set select box background color */
+.sign-up .check-form-group
+{
+    background-color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+/* triangle down */
+.sign-up .form-group .select-box-back-ground > div
+{
+    display: inline-block;
+    height: 0;
+    width: 0;
+    border-top: 7px solid #ffffff;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+    margin-top: 15px;
+}
+
+/* upload file text field, be shown to user, but disable */
+.sign-up #uploadFile
+{
+    width: 58.08%;
+    height: 37px;
+    color: #333333;
+}
+
+
+/* button be inactive */
+.btn-inactive
+{
+    border-radius: 2px;
+    box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.3);
+    height: 35px;
+    line-height: 35px;
+    top:-6px;
+    position: relative;
+
+}
+
+
+/* upload file input field hidden */
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/* upload file button */
+.fileUpload
+{
+    width: 41.15%;
+
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 2px;
+}
+
+/* term information */
+.term-info
+{
+    font-size: 14px;
+    margin-left: 4px;
+    height: 1em;
+}
+
+/* link in term information */
+.term-info a
+{
+    text-decoration: underline;
+}
+
+/* accept terms and conditions */
+.accept-terms-group
+{
+    height: 45px;
+    margin-top: 0;
+    padding-left: 11.17%;
+    vertical-align: middle;
+    font-size: 0;
+    position: relative;
+}
+
+/* align sub elements of accept terms group to left */
+.accept-terms-group > *
+{
+    float: left;
+}
+
+/* margin top */
+.sign-up form .controls
+{
+    margin-top: -1px;
+}
+
+/* button in sign up form button group */
+.sign-up form .controls .btn
+{
+    width: 96.67%;
+    height: 40px;
+    line-height: 26px;
+    font-size: 18px;
+
+    vertical-align: middle;
+}
+
+a.btn:active
+{
+    font-weight: normal;
+}
+
+.sign-up .sprite-shadow-hspliter
+{
+    margin-top: 43px;
+}
+
+.sign-up.sign-up-founder .sprite-shadow-hspliter
+{
+    margin-top: 7px;
+}
+
+.btn-disable
+{
+    border-radius: 5px;
+    background-color: #82a3b5;
+    box-shadow: inset 0px -5px 0px 0px #7f96A3;
+    pointer-events: none;
+}
+
+
+.confirm-password-group .circle
+{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(75, 143, 0);
+    position: absolute;
+    float: right;
+    top: 7px;
+    right: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+.confirm-password-group .circle > div
+{
+    position: absolute;
+    top: 11px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+#bizFirstName
+{
+    width: 46.9%;
+}
+
+
+#bizLastName
+{
+    width: 50%;
+    margin-left: 3.1%;
+}
+
+.sign-up-champion .accept-terms-group
+{
+    height: 55px;
+}
+
+
+/******************* reset password ********************************/
+/* information in reset password form */
+.reset-password form .info
+{
+    width: 99.35%;
+    margin: 34.5px 0px 35.8px 3.5%;
+    line-height: 16.4px;
+    height: 33px;
+}
+
+/* form group in reset password step 1*/
+.reset-password-step1 form .form-group
+{
+    padding-left: 7px;
+}
+
+/* icon in reset password step 1*/
+.reset-password-step1 form .icon
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: #959595;
+}
+
+/* form group in reset password step 1 to over ride #login style */
+#login.reset-password-step1 form .form-group
+{
+    margin-bottom: 0;
+    position: relative;
+
+    padding-left: 7px;
+}
+
+/* input group in reset password step 1 */
+#login.reset-password-step1 form .form-group input
+{
+    margin-left: 6.5px;
+
+    font-size: 14px;
+}
+
+/* cancel button in reset password step 1 */
+.reset-password-step1 form .btn-cancel
+{
+    margin-top: 10px;
+}
+
+/* button group in reset password step 1 */
+#login.reset-password-step1 form .controls
+{
+    margin-top: 36px;
+}
+
+/* reset password button  and reset password step 1 cancel button */
+.reset-password .btn-reset-password,
+.reset-password-step1 .btn-cancel
+{
+    width: 101.16%;
+}
+
+/* green circle for confirm password check pass in reset password step 2 */
+.reset-password-step2 .confirm-password-group .circle
+{
+    right: 8px;
+    top: 50%;
+}
+
+/* button group in reset password step2*/
+#login.reset-password-step2 .controls
+{
+    margin-top: 39px;
+}
+
+/* input field in reset password step 2 */
+#login.reset-password-step2  input
+{
+    font-size: 14px;
+}
+
+/* form group in reset password step 2 */
+#login.reset-password-step2  .form-group
+{
+    margin-bottom: 8px;
+}
+
+/****** set error message **************/
+/* parent of set error message box  to relative */
+.reset-password-step1 form  fieldset
+{
+    position: relative;
+}
+
+/* set  error message to absolute */
+.reset-password-step1 .error-info
+{
+    position: absolute;
+    margin-top: 5px;
+}
+
+/* information in reset password step1*/
+.reset-password-step1.reset-password form .info
+{
+    margin-left: 2.95%;
+    line-height: 16.9px;
+}
+
+
+/******************** for right menu **************************/
+/* overlap */
+.menu-overlap
+{
+    top:0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0, 0.3);
+    position: fixed;
+    z-index: 10;
+    display: none;
+}
+
+/* right slide menu */
+.right-slide-menu
+{
+    width: 81.56%;
+    height: 100%;
+    position: fixed;
+    z-index: 11;
+    top:0;
+    right: 0;
+    background-color: #f2f2f2;
+    color: #333333;
+    box-shadow: 0px 0px 20px 0px rgba(34, 30, 31, 0.75);
+    text-align: center;
+    display: none;
+}
+
+/* show right slide menu */
+.menu-overlap.showRightMenu, .right-slide-menu.showRightMenu
+{
+    display: block;
+}
+
+/* set header */
+.index-main-content.showRightMenu, .index-main-content.showRightMenu header
+{
+    position: fixed;
+    right:  81.56%;
+}
+
+/* layout fix for iphone 4s or other device device height is less than 568px  */
+@media screen and (orientation:portrait) and (max-device-height: 568px )
+{
+    /* fix for .business-home */
+    #business-home .wrapper
+    {
+        height: 480px;
+    }
+}
+
+
+/*//////////////////////////////////////////////////////
+/* user info */
+.user-info {
+    padding: 10px 10px 20px 12px;
+    text-align: center;
+}
+
+    .user-info .avatar {
+        margin: auto;
+        width: 84px;
+        height: 84px;
+        border-radius: 42px;
+        border: 2px solid #b7b7b7;
+        overflow: hidden;
+    }
+
+    .user-info .greeting {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+/* gift cards table */
+.gift-cards {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 4px 4px 0 0;
+}
+
+    .gift-cards th {
+        width: 50%;
+        text-align: center;
+        vertical-align: middle;
+        color: #333333;
+        font-weight: bold;
+        height: 43px;
+        border-right: 1px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+    .gift-cards td {
+        height: 48px;
+        width: 50%;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 30px;
+        color: #125579;
+        font-style: italic;
+        border-right: 1px solid #f2f2f2;
+    }
+
+    .gift-cards th:last-child,
+    .gift-cards td:last-child {
+        border-right: 0;
+    }
+
+/* menu user info redeem */
+.user-info .redeem {
+    background: #0c6134;
+    border-radius: 0 0 4px 4px;
+    padding: 12px 10px;
+    height: 89px;
+    text-align: left;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+    .user-info .redeem-content {
+        position: relative;
+    }
+
+    .user-info .gauge-label {
+        position: absolute;
+        left: 0;
+        top: 18px;
+        width: 64px;
+        text-align: center;
+    }
+
+    .user-info .redeemed {
+        position: absolute;
+        left: 96px;
+        top: 19px;
+        width: 121px;
+        height: 37px;
+        line-height: 37px;
+        text-align: center;
+        background: #2a94d6;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .user-info .redeemed:before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: -20px;
+        border-top: 12px solid #2a94d6;
+        border-left: 20px solid transparent;
+    }
+
+    .user-info .no-gift .gift-cards {
+        display: none;
+    }
+
+    .user-info .no-gift .redeem {
+        height: 100px;
+        margin: 40px 0;
+        border-radius: 4px;
+        padding-top: 18px;
+    }
+
+/* home */
+.businesses {
+    padding-top: 10px;
+}
+
+
+/* search */
+.search {
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    background: #ffffff;
+}
+
+    .search .order-dropdown {
+        margin-left: 5px;
+    }
+
+    .search .order-toggle {
+        font-size: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 176px;
+        text-align: left;
+    }
+
+    .search .order-toggle .caret {
+        border-width: 7px;
+        margin: 8px 0 0 8px;
+        float: right;
+    }
+
+    .search .search-toggle {
+        float: right;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: url('../i/glass.png') center 7px no-repeat;
+    }
+
+    .search .searching {
+        padding: 5px 0;
+    }
+
+    .search .input {
+        position: relative;
+        display: block;
+        padding: 5px 25px 5px 35px;
+        margin-right: 75px;
+        font-weight: normal;
+    }
+
+    .search .do-search {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 35px;
+        height: 30px;
+        background: url('../i/glass.png') 10px -55px no-repeat;
+    }
+
+    .search .search-query {
+        font-size: 16px;
+        line-height: 30px;
+        padding: 5px 25px 5px 35px;
+        font-weight: normal;
+        background: url('../i/glass.png') 10px -110px no-repeat;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .search .input input {
+        font-size: 16px;
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .search .input input::-webkit-input-placeholder {
+        color: #959595;
+    }
+
+    .search .input .clear {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: url('../i/close.png') center center no-repeat;
+        top: 3px;
+        right: 0;
+    }
+
+    .search .cancel-search {
+        float: right;
+        margin-right: 10px;
+    }
+
+
+/* business entry*/
+.business-entry {
+    background: #ffffff;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 10px;
+}
+
+    .business-entry .entry-content {
+        height: 84px;
+    }
+        .businesses .business-entry .entry-content:active {
+            background: #e1e1e1;
+        }
+
+    .business-entry .toggle {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 16px;
+        height: 11px;
+        background: url('../i/expand-arrow.png') 0 0 no-repeat;
+    }
+
+    .business-entry.expanded .toggle {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    .business-entry .business-logo {
+        float: left;
+        width: 64px;
+        height: 64px;
+        text-align: center;
+        line-height: 64px;
+    }
+
+    .business-entry .business-logo img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .business-entry .business-title {
+        margin-left: 75px;
+    }
+
+    .business-entry .business-title-container {
+        display: table-cell;
+        vertical-align: middle;
+        height: 64px;
+    }
+
+    .business-entry .business-name {
+        font-size: 14px;
+        font-weight: bold;
+        color: #125579;
+    }
+
+    .business-entry .business-founder {
+        font-size: 14px;
+        color: #959595;
+    }
+
+    .business-entry .business-activation {
+        font-size: 11px;
+        color: #aaaaaa;
+    }
+
+    .business-entry .entry-detail {
+        display: none;
+        background: #007035;
+        color: #ffffff;
+    }
+
+    .business-entry .redeem-entry {
+        height: 60px;
+        padding: 10px;
+    }
+
+    .business-entry.expanded .entry-detail {
+        display: block;
+
+        border-radius: 0 0 4px 4px;
+    }
+
+    .business-entry .redeem {
+        float: left;
+        width: 80px;
+        padding-right: 10px;
+        text-align: center;
+        margin-top: -4px;
+    }
+
+    .business-entry .value {
+        display: inline-block;
+        padding: 0 10px 4px;
+        font-size: 16px;
+        line-height: 16px;
+        border-bottom: 1px dashed #ffffff;
+    }
+
+    .business-entry .discount {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: bold;
+        vertical-align: top;
+    }
+
+    .business-entry .discount-label {
+        display: inline-block;
+        width: 8px;
+        font-size: 14px;
+        color: #b6df88;
+        vertical-align: top;
+    }
+
+    .business-entry .details {
+        margin-left: 80px;
+        margin-right: 110px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 20px;
+        padding-top: 10px;
+    }
+
+    .business-entry .details a {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+    .business-entry .redeem-now {
+        float: right;
+    }
+
+    .business-entry .map {
+        position: relative;
+        background: #ffffff;
+        margin: 0 -5px 10px;
+        box-shadow: 0 2px 4px rgba(34, 30, 31, 0.5);
+    }
+
+    .business-entry .map-canvas {
+        width: 100%;
+        height: 150px;
+    }
+
+    .business-entry .address {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50px;
+        padding: 10px 15px;
+        background: rgba(74, 145, 0, 0.6);
+        color: #ffffff;
+    }
+
+
+/* details page */
+#details .business-entry .entry-content {
+    height: 94px;
+    padding-top: 15px;
+}
+
+    #details .business-entry .business-name {
+        font-size: 16px;
+    }
+
+    #details .business-entry .group {
+        padding-bottom: 7px;
+    }
+
+    #details .business-entry .group-title,
+    #details .business-entry .group-value {
+        padding-left: 35px;
+    }
+
+    #details .business-entry .group-title {
+        color: #4b8f00;
+        height: 18px;
+        background: url('../i/detail.png') no-repeat;
+    }
+
+    #details .business-entry .phone .group-title {
+        background-position: 5px 200px;
+    }
+
+    #details .business-entry .hours .group-title {
+        background-position: 5px 0;
+    }
+
+    #details .business-entry .activation .group-title {
+        background-position: 5px -42px;
+    }
+
+    #details .business-entry .expiration {
+        padding-bottom: 5px;
+    }
+
+    #details .business-entry .expiration .group-title {
+        background-position: 5px -84px;
+    }
+
+    #details .conditions li {
+        margin-left: 14px;
+        position: relative;
+    }
+
+    #details .conditions li:before {
+        content: '';
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 7px;
+        background: #333333;
+        position: absolute;
+        left: -14px;
+        top: 4px;
+    }
+
+    #details .details-aux {
+        /*padding-bottom: 10px;*/
+    }
+
+    #details .details-aux .group {
+        padding-bottom: 15px;
+    }
+
+/* redeem page */
+#redeem .info {
+    padding: 10px 0 20px;
+    text-align: center;
+}
+
+    #redeem .business-title {
+        color: #125579;
+        font-size: 18px;
+        line-height: 35px;
+    }
+
+    #redeem .details {
+        padding: 20px 20px 25px;
+        border-radius: 4px;
+        background: #ffffff;
+    }
+
+    #redeem .details .btn {
+        width: 100%;
+    }
+
+    #redeem .details .redeem {
+        height: 60px;
+    }
+
+    #redeem .details .value-group {
+        float: left;
+        text-align: center;
+    }
+
+    #redeem .details .discount-group {
+        float: right;
+        text-align: center;
+    }
+
+    #redeem .details .title {
+        color: #a1a1a1;
+        line-height: 12px;
+    }
+
+    #redeem .details .value,
+    #redeem .details .discount {
+        color: #00aeef;
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    #redeem .details .discount {
+        font-weight: bold;
+    }
+
+    #redeem .details .discount-label {
+        vertical-align: top;
+        color: #80c931;
+    }
+
+    #redeem .business-qr img {
+        box-shadow: 0 2px 4px rgba(34, 30, 31, 0.5);
+    }
+
+
+/* textinfo */
+#textinfo .text-content {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 13px;
+    top: 50px;
+    margin: 0;
+    width: auto;
+    overflow: auto;
+}
+
+    #textinfo .text-content .field {
+        position: absolute;
+        width: auto;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 80px;
+        overflow: auto;
+    }
+
+    #textinfo .text-content p {
+        margin-bottom: 1.25em;
+    }
+
+    #textinfo .text-content h3 {
+        margin-bottom: 1.25em;
+        font-size: 14px;
+        font-weight: normal;
+        color: #4b8f00;
+    }
+
+    #textinfo .text-content .back {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 10px;
+    }
+
+    #textinfo .text-content .back:before {
+        content: '';
+        display: inline-block;
+        width: 26px;
+        height: 30px;
+        margin-right: 10px;
+        vertical-align: middle;
+        background: url('../i/backToHome.png') 0 0 no-repeat;
+    }
+
+/* abuse */
+#abuse {
+    padding-top: 10px;
+}
+
+    #abuse .content {
+        padding: 20px 10px 10px;
+    }
+
+    #abuse .group {
+        padding: 0 0 15px;
+    }
+
+    #abuse .group-label {
+        margin-bottom: 7px;
+    }
+
+    #abuse .field {
+        font-weight: normal;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    #abuse .controls {
+        height: 50px;
+        margin: 15px 0 11px 0;
+    }
+
+    #abuse .controls .btn {
+        width: 111px;
+        float: left;
+    }
+
+    #abuse .controls .send {
+        float: right;
+    }
+
+/* business step */
+.business-step {
+    padding-top: 10px;
+    text-align: center;
+}
+
+    .business-step h2 {
+        margin: 10px 0 20px;
+        height: 30px;
+        line-height: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid #d7d7d7;
+    }
+
+    .business-step p {
+        padding: 6px 0;
+    }
+
+    .business-step .controls {
+        height: 50px;
+        margin: 13px 0 10px 0;
+    }
+
+    .business-step .controls .btn {
+        width: 111px;
+        float: left;
+    }
+
+    .business-step .controls .next {
+        float: right;
+    }
+
+/* qr scan */
+    #qr-scan .scan-camera {
+        height: 180px;
+        padding-top: 120px;
+        margin: 0;
+        background: url('../i/camera.png') center 40px no-repeat;
+        font-weight: normal;
+        color: #959595;
+    }
+
+    #qr-scan .scan-camera input {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+    }
+
+    #qr-scan .qr-reader {
+        margin: 0 -10px;
+        overflow: hidden;
+    }
+
+    #qr-reader-showcast {
+        width: 100%;
+        display: none;
+    }
+
+    #qr-canvas {
+        display: block;
+        width: 100%;
+        height: 180px;
+    }
+
+    #qr-scan .scanned {
+        height: 180px;
+        padding-top: 60px;
+        font-style: italic;
+        color: #4b8f00;
+    }
+
+/* steps */
+.steps {
+    width: 280px;
+    margin: auto;
+    height: 40px;
+    padding: 5px 0;
+}
+
+    .steps .step-point {
+        display: block;
+        position: relative;
+        z-index: 1;
+        float: left;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        background: #959595;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 0 0 5px #ffffff;
+    }
+
+    .steps .step-line {
+        display: block;
+        float: left;
+        height: 8px;
+        margin-top: 11px;
+        width: 95px;
+        background: #d7d7d7;
+    }
+
+    .steps .step-point.step-done,
+    .steps .step-line.step-done {
+        background: #4b8f00;
+    }
+
+/* confirm deducted amount */
+.deducted-amount {
+    height: 180px;
+    padding-top: 70px;
+}
+
+    .deducted-amount .input {
+        display: inline-block;
+        width: 162px;
+        height: 32px;
+        padding: 5px 5px 0;
+        vertical-align: middle;
+    }
+
+    .deducted-amount .input input {
+        line-height: 20px;
+        height: 20px;
+        text-align: center;
+        color: #939393;
+    }
+
+/* modal dialog */
+.modal-dialog {
+    width: 200px;
+    margin: 145px auto 20px;
+}
+
+    .modal-body p {
+        line-height: 1.25;
+    }
+
+    .modal-dialog .btn-group {
+        display: block;
+    }
+
+    .modal-dialog .btn-group .btn {
+        width: 50%;
+        margin: 0;
+    }
+
+    .modal-footer .btn-group .btn+.btn {
+        margin: 0;
+    }
+
+    .modal-footer .btn-group .btn+.btn:before {
+        content: '';
+        box-shadow: -2px 0 #8bb2ad;
+        display: inline-block;
+        height: 100%;
+        width: 2px;
+        position: absolute;
+        left: 2px;
+        top: 0;
+    }
+
+    .modal-icon-question {
+        color: #007035;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 50px;
+    }
+
+@media (max-height: 400px) {
+    .modal-dialog {
+        margin: 60px auto 10px;
+    }
+}
+
+    .modal-content {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .modal-body {
+        position: relative;
+        background: #007035;
+        padding: 40px 10px 20px;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .modal-footer {
+        padding: 0;
+        border: 0;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+        border-radius: 0 0 4px 4px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .modal-dialog .modal-icon {
+        position: absolute;
+        left: 50%;
+        top: -30px;
+        margin-left: -30px;
+        width: 60px;
+        height: 60px;
+        background: #ffffff center center no-repeat;
+        border-radius: 30px;
+        border: 5px solid #007035;
+    }
+
+    .modal-dialog .modal-icon-success {
+        background-image: url('../i/success-icon.png');
+    }
+
+.modal-open .main-content,
+.modal-open header {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
