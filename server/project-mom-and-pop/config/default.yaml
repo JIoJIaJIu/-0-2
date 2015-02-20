@@ -1,0 +1,9 @@
+MONGODB_URL: 'mongodb://localhost/mom-and-pop-db'
+MONGODB_CONNECTION_POOL_SIZE: 50
+WEB_SERVER_PORT: 10100
+SMTP_HOST: 'smtpcorp.com'
+SMTP_PORT: '2525'
+SMTP_USERNAME: 'johnnyawesome.tc@gmail.com'
+SMTP_PASSWORD: 'topcoder255'
+CONFIG_EMAIL: 'johnnyawesome.tc@gmail.com'
+SITE_ADMIN_EMAIL: 'johnnyawesome.tc@gmail.com'
