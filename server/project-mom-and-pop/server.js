@@ -17,6 +17,7 @@ var winston = require('winston');
 var resp = require('./helpers/response-helper');
 var routes = require('./routes.js');
 var secured = require('./middlewares/secured');
+var path = require('path');
 
 ///////////////////////
 // PRIVATE VARIABLES //
@@ -43,3 +44,5 @@ app.use(resp.sendError);
 app.listen(port, function() {
   winston.info('App is listening on port %s', port);
 });
+
+app.use(express.static(path.join(__dirname, '../../build')));
