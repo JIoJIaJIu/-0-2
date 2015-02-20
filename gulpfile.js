@@ -5,20 +5,20 @@ var path = require('path');
 
 var OUTPUT = 'build';
 
-gulp.task('default', ['prototype1', 'third-parties', 'build1']);
-gulp.task('default2', ['prototype2']);
+gulp.task('default', ['desktop', 'third-parties', 'build1']);
+gulp.task('default2', ['mobile']);
 
 gulp.task('clean', function () {
     del(OUTPUT);
 });
 
-gulp.task('prototype1', ['clean'], function () {
-    gulp.src('prototype1/**/*', {base: 'prototype1'})
+gulp.task('desktop', ['clean'], function () {
+    gulp.src('desktop/**/*', {base: 'desktop'})
         .pipe(gulp.dest(OUTPUT));
 });
 
-gulp.task('prototype2', ['clean'], function () {
-    gulp.src('prototype2/**/*', {base: 'prototype2'})
+gulp.task('mobile', ['clean'], function () {
+    gulp.src('mobile/**/*', {base: 'mobile'})
         .pipe(gulp.dest(OUTPUT));
 });
 
