@@ -1,0 +1,24 @@
+{
+	"history": [
+		{
+			"type": "Sale",
+			"details": "username has bought F$ #1111 2222 3333",
+			"amount":"1"
+		},
+		{
+			"type": "Sale",
+			"details": "lorem ipsum",
+			"amount":"2"
+		},
+		{
+			"type": "Post",
+			"details": "Business 1 has posted Gift Card number 1234 5678 9123",
+			"amount":"2"
+		},
+		{
+			"type": "Sale",
+			"details": "lorem ipsum",
+			"amount":"1"
+		}
+	]	
+}

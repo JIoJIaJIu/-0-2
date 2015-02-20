@@ -1,0 +1,39 @@
+<div class="container abuse">
+
+  <div class="main feedback no-background">
+  	<h2>Provide Feedback</h2>
+    <div class="form">
+      <form name="abuseForm" data-ng-submit="submitQuery()">
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" name="subject" id="subject" 
+          	data-ng-model="subject" 
+            data-ng-class="{'error':submitted && abuseForm.subject.$error.required}"
+            required="required" />
+        </div>
+        <!-- End .form-group -->
+        <div class="form-group">
+          <label>Type</label>
+          <div id="feedback_type" dropdown-select="myOptions" dropdown-model="feedback_type" dropdown-item-label="name"></div>
+        </div>
+        <!-- End .form-group -->
+        <div class="form-group last">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" 
+          	data-ng-model="message" 
+            data-ng-class="{'error':submitted && abuseForm.message.$error.required}"
+            required="required">
+          </textarea>
+        </div>
+        <!-- End .form-group -->
+        <div class="button-group">
+        	<a href="javascript:;" class="btn btn-secondary" data-ng-click="submit();">Send</a>
+        </div>
+        <!-- End .button-group -->
+      </form>
+     </div>
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->

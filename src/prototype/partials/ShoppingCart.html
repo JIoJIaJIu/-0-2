@@ -1,0 +1,66 @@
+<div class="container cart">
+
+  <div class="main no-background">
+  	<h2>Shopping Cart</h2>
+    <div class="button-group">
+    	<a href="#/Home" class="btn btn-primary">Continue Browsing</a>
+      <a href="javascript:;" class="btn btn-secondary" data-ng-click="pay()">Pay Now</a>
+    </div>
+    <!-- End .button-group -->
+    <div class="data">
+    	<table>
+      	<thead>
+        	<tr>
+          	<th class="hares">Founder$hares</th>
+            <th class="available">Available</th>
+            <th class="discount">Discount</th>
+            <th class="value">Total Value</th>
+            <th class="price">Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        	<tr data-ng-repeat="cart in cartList">
+          	<td>
+            	<div class="business-info">
+              	<div class="logo"><img src="./i/image.jpg" data-ng-src="{{cart.logo}}" alt="Pic" /></div>
+                <!-- End .logo -->
+                <a href="javascript:;" class="link">{{cart.name}}</a>
+                <div class="activation">Activation : {{cart.activation}}</div>
+                <div class="info-bottom">
+                	<div class="discount">
+                  	{{cart.discount*100}}%<span>off</span>
+                  </div>
+                  <div class="date">{{cart.date}}</div>
+                  <div class="percent">${{cart.available}}<small>remain</small></div>
+                </div>
+              </div>
+              <!-- End .business-info -->
+            </td>
+            <td><span>${{cart.available}}</span></td>
+            <td><span>{{cart.discount*100}}%</span></td>
+            <td><input type="text" data-ng-model="cart.value" data-ng-keyup="reflash()" data-ng-class="{'error':validate[$index]}" dollar-only="dollar-only" required="required" /></td>
+            <td><span>${{price[$index]}}</span></td>
+            <td><a href="javascript:;" class="btn btn-primary" data-ng-click="delete($index)">Cancel</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- End .data -->
+    <div class="total">TOTAL<span>${{total}}</span></div>
+  </div>
+  <!-- End .main -->
+  
+  <div class="modalBg" 
+  	data-ng-class="{'on':modal}"
+    data-ng-click="closeModal()"></div>
+  <div class="modal modal-pay" data-ng-class="{'on':unLoginModal}">
+  	<p>You need to be logged in to buy Founder$hares</p>
+    <div class="button-group">
+    	<a href="#/Login" class="btn btn-secondary">Login</a>
+    	<a href="javascript:;" class="btn btn-primary" data-ng-click="cancel()">Cancel</a>
+    </div>
+  </div>
+  
+</div>
+<!-- End .container -->

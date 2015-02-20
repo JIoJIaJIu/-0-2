@@ -1,0 +1,117 @@
+<div class="container info">
+
+	<aside>
+  	<div class="profile">
+    	<div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+    </div>
+    <ul>
+    	<li><a href="#/ChampionMyInfo">My Info</a></li>
+    	<li><a href="#/ChampionMyFounder$hares" class="active">My Founder$hares</a></li>
+      <li><a href="#/ChampionMyHistory">My History</a></li>
+    </ul>
+    <a href="#/Payment" class="note" data-ng-show="role ==='Founder'">Not a Verified Business</a>
+  </aside>
+  <!-- End Aside -->
+  <div class="main">
+  	<h2 data-ng-bind="MyCart.giftcards"></h2>
+    
+    <dl class="cart tab-my-info" data-infinite-scroll="loadMore()">
+    	<dt class="hide"></dt>
+		<dd>
+        	<div class="table-bar clearfix">
+                <div class="left col">
+                    <label data-ng-bind="MyCart.totalSold"></label>
+                    <p data-ng-bind="MyCart.NumberSold"></p>
+                </div>
+                <div class="right col">
+                    <label data-ng-bind="MyCart.totalRedeemed"></label>
+                    <p data-ng-bind="MyCart.NumberRedeemed"></p>
+                </div>
+            </div>
+			<div class="table-responsive table-my-founder">
+				<table class="table table-bordered ">
+			        <thead>
+			          <tr>
+			            <th  data-ng-bind="MyCart.li1"></th>
+						<th  data-ng-bind="MyCart.li2"></th>
+						<th  data-ng-bind="MyCart.li3"></th>
+						<th class="width40"  data-ng-bind="MyCart.li4"></th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr data-ng-repeat="item in MyCart.listItem">
+			            <td class="business-name">
+								<a href="javascript:;">
+									<p class="margin-top50">
+										<span data-ng-bind="item.company"></span>
+									</p>
+								</a>
+								<p class="nameCart font-11" data-ng-bind="item.name"></p>
+			            </td>
+			            <td>
+			            	<label class="line-height139 color-555" data-ng-bind="item.numberCart"></label>
+			            </td>
+			            <td>
+			            	<div class=" status">
+								<div class="amount" data-ng-class="{'border-bottom1': item.numberCart > '1'}">
+                                    <p data-ng-class="{'line-height139' : item.numberCart == '2'}">{{item.money1}}</p>
+                                </div>
+                                <div class="amount" data-ng-class="{'border-bottom1': item.numberCart > '2'}">
+                                    <p data-ng-class="{'line-height139' : item.numberCart == '2'}">{{item.money2}}</p>
+                                </div>
+                                <div class="amount">
+                                    <p class= 'line-height120'>{{item.money3}}</p>
+                                </div>
+ 							</div>
+			            </td>
+			            <td>
+			            	<div class="status-ctrl" data-ng-class="{'border-bottom1': item.numberCart > '1'}">
+                                <a href="#/PostCards" data-ng-show="item.resale1=='Resale'">
+									<span class="green" data-ng-bind="item.resale1"></span>
+								</a>
+								<span class="margin-left10" data-ng-show="item.resale1=='For Resale'" data-ng-bind="item.resale1"></span>
+								<a class="margin-left25" href="javascript:;">
+									<span data-ng-bind="item.cancel1"></span>
+								</a>
+							</div>
+							<div class="status-ctrl" data-ng-show="item.numberCart > '1'" data-ng-class="{'border-bottom1': item.numberCart > '2'}">
+                                <a href="#/PostCards" data-ng-show="item.resale2=='Resale'">
+									<span class="green" data-ng-bind="item.resale2"></span>
+								</a>
+								<span class="margin-left10" data-ng-show="item.resale2=='For Resale'" data-ng-bind="item.resale2"></span>
+								<a class="margin-left25" href="javascript:;">
+									<span data-ng-bind="item.cancel2"></span>
+								</a>
+							</div>
+                            <div class="status-ctrl" data-ng-show="item.numberCart > '2'">
+                                <a href="#/PostCards" data-ng-show="item.resale3=='Resale'">
+									<span class="green" data-ng-bind="item.resale3"></span>
+								</a>
+								<span class="margin-left10" data-ng-show="item.resale3=='For Resale'" data-ng-bind="item.resale3"></span>
+								<a class="margin-left25" href="javascript:;">
+									<span data-ng-bind="item.cancel3"></span>
+								</a>
+							</div>
+			            </td>
+			          </tr>
+			        </tbody>
+			      </table>
+		      </div>
+			
+			<div data-ng-if="pause" class="load-more">
+				<div id="bowl-ring">
+					<div class="ball-holder">
+						<div class="ball">
+						</div>
+					</div>
+				</div>
+				<span>Loading more 5 gift cards [from 30]</span>
+			</div>
+		</dd>
+	</dl>
+
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->

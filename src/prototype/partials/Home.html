@@ -1,0 +1,237 @@
+<!-- content -->
+<div class="home-list" data-infinite-scroll="loadMore()">
+	<dl class="clearfix">
+		<dt data-ng-bind="Home.title"></dt>
+		<dd>
+			<div data-ng-click="showInfo(item)" class="item clearfix" data-ng-repeat="item in Home.listItem | filter:search">
+				<p class="item-logo-section"><span class="item-logo" data-ng-bind="item.logo"></span></p>
+				<p data-ng-bind="item.name" ></p>
+                <p class="item-info">
+                    <span data-ng-bind="item.activation"></span>
+                    <span data-ng-bind="item.data"></span>
+                    <span data-ng-bind="item.time"></span>
+                </p>
+				<section class="details clearfix">
+					<div class="left">
+						<label data-ng-bind="item.sale" class="sale"></label>
+						<span class="font-size14" data-ng-bind="item.onOff"></span>
+						<hr/>
+						<label data-ng-bind="item.expiration" class="expiration"></label>
+					</div>
+					<div class="left radial-progress" data-progress="{{item.progess}}">
+						<div class="circle">
+							<div class="shadow "></div>
+							<div class="mask full">
+								<div class="fill" ></div>
+							</div>
+							<div class="mask half">
+								<div class="fill" ></div>
+								<div class="fill fix"></div>
+							</div>
+						</div>
+						<div class="inset">
+							<div class="percentage">
+								<p><span>$</span><span class="progress">{{item.progess}}</span></p>
+								<p>remain</p>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div data-ng-if="pause" class="load-more">
+				<div id="bowl-ring">
+					<div class="ball-holder">
+						<div class="ball">
+						</div>
+					</div>
+				</div>
+				<span>Loading more 4 gift cards [from 28]</span>
+			</div>
+		</dd>
+	</dl>
+    
+	<!-- show details card -->
+		<div class="details-card" data-ng-if="display">
+			<dl>
+				<dt class="font-size48">Founder$hares Details</dt>
+				<dd>
+					<div class="view-details">
+						<div class="view-info">
+							<div class="name-card">
+								<span class="circle-info"><b>{{arrayList.logo}}</b></span>
+								<div class="business-name">
+									<p class="founder margin-left7 margin-top10" >{{arrayList.name}}</p>
+									<p class="business">{{arrayList.founderName}}</p>
+								</div>
+							</div>
+							<div class="info-card margin-top5">
+								<div class="left margin-shop-card width105 float-left">
+									<label class="sale-shopping color-2 color-number" >{{arrayList.sale}}</label>
+									<span class="onOff-shopping " >{{arrayList.onOff}}</span>
+									<p><label class="expiration-shopping border-top1" >{{arrayList.expiration}}</label></p>
+								</div>
+						
+
+								<div class="left radial-progress margin-top10 float-left" data-progress="{{arrayList.progess}}">
+									<div class="circle">
+										<div class="shadow bg-view"></div>
+										<div class="mask full">
+											<div class="fill" ></div>
+										</div>
+										<div class="mask half">
+											<div class="fill" ></div>
+											<div class="fill fix"></div>
+										</div>
+									</div>
+									<div class="inset bg-chart">
+										<div class="percentage">
+											<p class="font-view"><span>$</span><span class="progress progess1">{{arrayList.progess}}</span></p>
+											<p class="font-view top-re">remain</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="add-card margin-top-7">
+								<p>
+									<img id="close" src="i/close.png" alt="close" data-ng-click="closeInfo()">
+								</p>
+								<p class="btn-add">
+									<a href="javascript:;" data-ng-click="addToCard()">Add to Cart</a>
+								</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="description">
+							<div class="description-1">
+								<p>
+									<span class="text">Creation Date</span>
+									<i>:</i>
+									<span class="date">{{arrayList.data}} {{arrayList.time}}</span>
+								</p>
+								<p >
+									<span class="text">Activation Date</span>
+									<i>:</i>
+									<span class="date">{{arrayList.data}} {{arrayList.time}}</span>
+								</p>
+								<p class="margin-bottom8">
+                                    <a href="#/ReportAbuse" class="text report-abuse">Report Abuse</a>
+								</p>
+								<div class="location margin-top15">
+									<iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d382377.4987444238!2d-100.98401202067981!3d41.5189174039465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87762ca8edfebd91%3A0x58fab993be2c8060!2sUnnamed+Rd%2C+North+Platte%2C+NE+69101%2C+Hoa+K%E1%BB%B3!5e0!3m2!1svi!2s!4v1422146442613" ></iframe>
+								</div>
+								<div class="clearfix"></div>
+								<p class="margin-top10">
+									<span class="text width50">Hours</span>
+									<i>:</i>
+									<span class="date">{{arrayList.hours}}</span>
+								</p>
+								<p class="margin-top3">
+									<span class="text width50">Phone</span>
+									<i>:</i>
+									<span class="date">{{arrayList.phone}}</span>
+								</p>
+							</div>
+							<div class="description-2">
+								<p class="title">Description</p>
+								<p class="des margin-top10 top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. </p>
+								<p class="title margin-top19">Conditions</p>
+								<ul class="margin-top4">
+									<li>• Lorem ipsum dolor sit amet,</li>
+									<li>• consectetur adipiscing elit. Aenean euismod bibendum laoreet.</li>
+									<li>• Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</li>
+									<li>• Proin sodales pulvinar tempor.</li>
+								</ul>
+							</div>	
+							<div class="description-3">
+								<p class="description-title">
+									<span class="comment">Comment</span>
+								</p>
+                                <textarea placeholder="Add a comment" class="txtAddCm" ></textarea>
+								<div class="comment-detail" id="ex3">
+									<div class="list-comment">
+										<div class="comment-info">
+											<p class="comment-name">{{arrayList.username}}</p>
+											<p class="comment-date margin-bottom4">{{arrayList.dateComment}}</p>
+										</div>
+										<p class="com-view">{{arrayList.desComment}}</p>
+									</div>
+									<div class="list-comment">
+										<div class="comment-info">
+											<p class="comment-name">{{arrayList.username}}</p>
+											<p class="comment-date margin-bottom4">{{arrayList.dateComment}}</p>
+										</div>
+										<p class="com-view">{{arrayList.desComment}}</p>
+									</div>
+									<div class="list-comment">
+										<div class="comment-info">
+											<p class="comment-name">{{arrayList.username}}</p>
+											<p class="comment-date margin-bottom4">{{arrayList.dateComment}}</p>
+										</div>
+										<p class="com-view">{{arrayList.desComment}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="share">
+							<div class="share-color">
+								<span class="text">Share on :</span>
+								<span class="color-1">f</span>
+								<span class="color-2">t</span>
+								<span class="color-3">g</span>
+								<span class="color-4">in</span>
+							</div>
+							<div class="share-link">
+								<span class="lbl-link">Link :</span>
+								<input type="text" name="link" class="link" value="{{arrayList.link}}">
+								<a href="javascript:;">Refer to friend</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</dd>
+			</dl>
+			<div class="clearfix"></div>
+		</div>
+	<!-- end show details card -->
+    
+	<!-- end content -->
+	<div class="login-panel" data-ng-if="startLogin">
+		<div class="login-form init-modal" data-ng-init="loginError=false">
+			<div class="content">
+                <h3>Login</h3>
+				<form>
+					<input type="text" value="" placeholder="Username" data-ng-model="username" data-ng-class="{error:loginError}">
+				<input type="password" value="" placeholder="Password" data-ng-model="password" data-ng-class="{error:loginError}">
+					<p class="remember-forgot">
+						<label>
+							<input type="checkbox">
+							<i></i>
+							<span>Remember me</span>
+						</label>
+						<span class="forgot-pass"><a href="javascript:;">Forgot Password?</a></span>
+					</p>
+                    <a href="javascript:;" class="btn-continue" data-ng-init="mocKUp=false" data-ng-click="mockUp=!mockUp">Continue</a>
+					<!-- mock up role -->
+					<ul class="mock-up" data-ng-show="mockUp">
+						<li><a href="javascript:;" data-ng-click="login('champion', true)">Login as Champion</a></li>
+						<li><a href="javascript:;" data-ng-click="login('founder', true)">Login as Founder</a></li>
+						<li><a href="javascript:;" data-ng-click="login('employee', true)">Login as Platform Employee</a></li>
+						<li><a href="javascript:;" data-ng-click="loginError=true; mockUp=false">Login Error</a></li>
+					</ul>
+					<!-- end mock up role -->
+					<p>Don't have an account? <a href="javascript:;">Sign up now</a></p>
+				</form>
+				<span>or</span>
+			</div>
+			<div class="social">
+				<a href="javascript:;" class="face"><span class="icon-face"></span>Use My Facebook Account</a>
+				<a href="javascript:;" class="twitter"><span class="icon-twitter"></span>Use My Twitter Account</a>
+				<a href="javascript:;" class="linkedin"><span class="icon-linkedin"></span>Use My Linkedin Account</a>
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+</div>
+

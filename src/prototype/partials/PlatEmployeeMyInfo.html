@@ -1,0 +1,68 @@
+<div class="container info">
+
+	<aside>
+        <div class="profile">
+            <div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+        </div>
+        <ul>
+            <li><a href="javascript:;" class="active">My Info</a></li>
+          <li><a href="#/FounderStatus">Founder Status</a></li>
+        </ul>
+        <a href="#/Payment" class="note" data-ng-show="role ==='Founder'">Not a Verified Business</a>
+    </aside>
+  <!-- End Aside -->
+    <div class="main">
+        <h2>My Info</h2>
+        <div class="bar last">
+            <h3>ACCOUNT PASSWORD</h3>
+            <div class="button-group" data-ng-show="switchPassword === true;">
+                <a href="javascript:;" class="btn btn-secondary" data-ng-click="savePassword()">Save Password</a>
+                <a href="javascript:;" class="btn btn-primary" data-ng-click="cancelPassword()">Cancel</a>
+            </div>
+            <a href="javascript:;" class="link link-change" data-ng-hide="switchPassword === true;" data-ng-click="switchPassword=!switchPassword">Change Password</a>
+        </div>
+        <!-- End .well -->
+        <div class="data password-data" data-ng-form name="passwordForm">
+            <table>
+                <tr>
+                    <th>Current Password</th>
+                    <td class="details">
+                        <span data-ng-hide="switchPassword">{{password}}</span>
+                        <input type="password" id="password" name="password[0].password" 
+                            data-ng-model="password" 
+                            data-ng-show="switchPassword"
+                            data-ng-class="{true: 'error'}[submitted && passwordForm.password[0].password.$invalid]"
+                            required="required" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>New Password</th>
+                    <td class="details">
+                        <input type="password" id="password_new" name="password_new" 
+                            data-ng-model="newpassword" 
+                            data-ng-show="switchPassword"
+                            data-ng-class="{true: 'error'}[submitted && passwordForm.password_new.$invalid]"
+                            required="required" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>Confirm Password</th>
+                    <td class="details">
+                        <input type="password" id="password_confirm" name="password_confirm" 
+                            data-ng-show="switchPassword" 
+                            data-ng-model="confirmpassword" 
+                            data-ng-class="{true: 'error'}[submitted && passwordForm.password_confirm.$invalid]"
+                            pw-check="password_new" 
+                            required="required" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    
+    </div>
+    <!-- End .main -->
+</div>
+<!-- End .container -->

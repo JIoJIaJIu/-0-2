@@ -1,0 +1,66 @@
+<div class="container payment">
+
+  <div class="main no-background">
+  	<h2>Payment</h2>
+    <div class="form">
+      <form name="form" novalidate>
+        <div class="form-group">
+          <label for="number">Card Number</label>
+          <input type="text" name="number" id="number"
+          	data-ng-class="{true: 'error'}[submitted && form.number.$invalid]"
+          	data-ng-model="number"
+            numbers-only="numbers-only"
+            required="required" />
+        </div>
+        <!-- End .form-group -->
+        <div class="form-group">
+          <label>Expiration</label>
+          <div data-ng-class="{true: 'error'}[submitted && select_month.name==='month']" dropdown-select="months" dropdown-model="select_month" dropdown-item-label="name"></div>
+          <div data-ng-class="{true: 'error'}[submitted && select_year.name==='year']" dropdown-select="years" dropdown-model="select_year" dropdown-item-label="name"></div>
+        </div>
+        <!-- End .form-group -->
+        <div class="form-group last">
+          <label for="verification">Card Verification Number</label>
+          <input type="text" name="verification" id="verification" 
+          data-ng-class="{true: 'error'}[submitted && form.verification.$invalid]"
+          	data-ng-model="verification" 
+            numbers-only="numbers-only"
+            required="required" />
+          <a href="javascript:;">Can’t find it?</a>
+        </div>
+        <!-- End .form-group -->
+        <div class="form-group" data-ng-if="userRole === 'Champion'">
+            <label for="verification">Zip Code</label>
+            <input type="text" name="zip" id="zip" 
+                data-ng-class="{true: 'error'}[submitted && form.zip.$invalid]"
+                data-ng-model="zip" 
+                numbers-only="numbers-only"
+                required="required" />
+        </div>
+        <!-- End .form-group -->
+        <div class="button-group">
+        	<a href="javascript:;" class="btn btn-secondary" data-ng-click="submit();">Pay</a>
+        </div>
+        <!-- End .button-group -->
+        </form>
+        </div>
+    </div>
+    <!-- End .main -->
+    <div class="modalBg" data-ng-class="{'on': modal}" data-ng-click="closeModal()"></div>
+    <div class="modal modal-post" data-ng-class="{'on': modal}">
+        <p>Transaction Completed!</p>
+        <div class="bar">
+            <dl>
+            <dt>Share</dt>
+            <dd><a href="javascript:;" class="icon icon-f"></a></dd>
+            <dd><a href="javascript:;" class="icon icon-t"></a></dd>
+            <dd><a href="javascript:;" class="icon icon-g"></a></dd>
+            <dd><a href="javascript:;" class="icon icon-in"></a></dd>
+          </dl>
+        </div>
+        <div class="button-group">
+            <a href="#/Home" class="btn btn-secondary">Done</a>
+        </div>
+    </div>
+</div>
+<!-- End .container -->

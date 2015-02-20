@@ -1,0 +1,28 @@
+<div class="container history info">
+
+	<aside>
+  	<div class="profile">
+    	<div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+    </div>
+    <ul>
+    	<li><a href="#/ChampionMyInfo">My Info</a></li>
+    	<li><a href="#/ChampionMyFounder$hares">My Founder$hares</a></li>
+      <li><a href="#/ChampionMyHistory" class="active">My History</a></li>
+    </ul>
+  </aside>
+  <!-- End Aside -->
+  <div class="main">
+  	<h2>My History</h2>
+    <ul class="header">
+    	<li class="action">Action Type</li>
+      <li>Details</li>
+    </ul>
+    <ul data-ng-repeat="history in historyList">
+    	<li class="action"><strong>{{history.type}}</strong></li>
+      <li>{{history.details}}</li>
+    </ul>
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->

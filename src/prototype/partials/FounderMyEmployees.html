@@ -1,0 +1,56 @@
+<div class="container employees">
+
+	<aside>
+  	<div class="profile">
+    	<div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+    </div>
+    <ul>
+    	<li><a href="#/FounderMyInfo">My Info</a></li>
+      <li><a href="#/Founder$hares">My Founder$hares</a></li>
+      <li><a href="#/FounderMyHistory">My History</a></li>
+      <li><a class="active" href="javascript:;">Employees</a></li>
+    </ul>
+    <a href="#/VerifyAccount" class="note" data-ng-show="role ==='Founder'">Not a Verified Business</a>
+  </aside>
+  <!-- End Aside -->
+  <div class="main">
+  	<h2>My Employees</h2>
+    <div class="bar">
+    	View All Employees	<a href="javascript:;" class="btn btn-secondary" data-ng-click="add();">Add Employee</a>
+    </div>
+    <!-- End .bar -->
+    <div class="data">
+    	<form name="employeeForm" data-ng-submit="save()">
+        <table>
+          <thead>
+            <tr>
+              <th class="name">Name</th>
+              <th class="password">Password</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="employee in employeesList">
+              <td>
+                <span data-ng-hide="employee.flag">{{employee.name}}</span>
+                <input type="text" data-ng-model="employee.name" data-ng-show="employee.flag" data-ng-class="{'error':employee.nameEmpty}" />
+              </td>
+              <td>
+                <span data-ng-hide="employee.flag">{{employee.password}}</span>
+                <input type="password" data-ng-model="employee.password" data-ng-show="employee.flag" data-ng-class="{'error':employee.passwordEmpty}" />
+              </td>
+              <td>
+                <a href="javascript:;" class="btn btn-secondary" data-ng-hide="employee.flag" data-ng-click="modify($index)">Modify</a>
+                <a href="javascript:;" class="btn btn-secondary" data-ng-show="employee.flag" data-ng-click="save($index)">Save</a>
+                <a href="javascript:;" class="btn btn-primary" data-ng-click="remove($index)">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->

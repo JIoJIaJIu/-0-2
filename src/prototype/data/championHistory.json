@@ -1,0 +1,20 @@
+{
+	"history": [
+		{
+			"type": "Buy",
+			"details": "username has bought F$ #1111 2222 3333"
+		},
+		{
+			"type": "Trade",
+			"details": "lorem ipsum"
+		},
+		{
+			"type": "Redeem",
+			"details": "$200 has been redeemed from F$ #1111 2222 3333"
+		},
+		{
+			"type": "Trade",
+			"details": "lorem ipsum"
+		}
+	]	
+}

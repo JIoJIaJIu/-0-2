@@ -1,0 +1,373 @@
+<div class="container info">
+	<aside>
+  	<div class="profile">
+    	<div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+    </div>
+    <ul>
+    	<li><a class="active" href="#/FounderMyInfo">My Info</a></li>
+        <li><a href="#/Founder$hares">My Founder$hares</a></li>
+        <li><a href="#/FounderMyHistory">My History</a></li>
+        <li><a href="#/FounderMyEmployees">Employees</a></li>
+    </ul>
+    <a href="#/VerifyAccount" class="note" data-ng-show="role ==='Founder'">Not a Verified Business</a>
+  </aside>
+  <!-- End Aside -->
+  <div class="main">
+  	<h2>My Info</h2>
+    <div class="bar">
+    	<h3>BUSINESS INFORMATION</h3>
+        <div class="button-group" data-ng-show="Edit">
+            <a href="javascript:;" class="btn btn-secondary" data-ng-click="save(); Edit=false">Save Info</a>
+            <a href="javascript:;" class="btn btn-primary" data-ng-click="cancel(); Edit=false">Cancel</a>
+        </div>
+        <a href="javascript:;" class="link link-edit" data-ng-show="!Edit" data-ng-click="Edit=!Edit">Edit</a>
+        <span class="small">Is Public Info?</span>
+    </div>
+    <!-- End .well -->
+    <div class="data info-data" data-ng-form name="infoForm">
+        <table>
+            <tr>
+                <th>{{ Myinfo.business_tel.title }}</th>
+                <td class="details">
+                    <span data-ng-bind="Myinfo.business_tel.describe" data-ng-hide="Edit"></span>
+                    <input type="text" data-ng-model="Editinfo.business_tel.describe" data-ng-if="Edit"/>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.business_tel.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ Myinfo.business_name.title }}</th>
+                <td class="details">
+                    <span data-ng-bind="Myinfo.business_name.describe" data-ng-hide="Edit"></span>
+                    <input type="text" data-ng-model="Editinfo.business_name.describe" data-ng-if="Edit"/>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.business_name.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ Myinfo.business_addr.title }}</th>
+                <td class="details">
+                    <span data-ng-bind="Myinfo.business_addr.describe" data-ng-hide="Edit"></span>
+                    <input type="text" data-ng-model="Editinfo.business_addr.describe" data-ng-if="Edit"/>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.business_addr.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ Myinfo.business_type.title }}</th>
+                <td class="details">
+                    <span data-ng-hide="Edit">{{ Myinfo.business_type.describe.name }}</span>
+                    <div data-ng-if="Edit" id="business_type" dropdown-select="businessType" dropdown-model="Editinfo.business_type.describe" dropdown-item-label="name"></div>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.business_type.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ Myinfo.logo.title }}</th>
+                <td class="details" flow-init="{singleFile:true}" 
+                    flow-name="uploader.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                    <span data-ng-bind="Myinfo.logo.describe" data-ng-hide="Edit"></span>
+                    <div class="file" data-ng-show="Edit">
+                        <input type="text" class="file" readonly="readonly" data-ng-show="!$flow.files.length" data-ng-model="Myinfo.logo.describe" />
+                        <input type="text" class="file" readonly="readonly" data-ng-show="$flow.files.length" data-ng-model="$flow.files[0].name" />
+                        <a href="javascript:;" class="btn btn-secondary" flow-attrs="{accept:'image/*'}" flow-btn>Browse</a>
+                    </div>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.photo.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ Myinfo.description.title }}</th>
+                <td class="details">
+                    <span data-ng-bind="Myinfo.description.describe" class="multiline" data-ng-hide="Edit"></span>
+                    <textarea type="text" data-ng-model="Editinfo.description.describe" data-ng-if="Edit"></textarea>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.description.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ Myinfo.hours_open.title }}</th>
+                <td class="details">
+                    <span data-ng-bind="Myinfo.hours_open.describe" data-ng-hide="Edit"></span>
+                    <input type="text" data-ng-model="Editinfo.hours_open.describe" data-ng-if="Edit"/>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.hours_open.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ Myinfo.website.title }}</th>
+                <td class="details">
+                    <span data-ng-bind="Myinfo.website.describe" data-ng-hide="Edit"></span>
+                    <input type="text" data-ng-model="Editinfo.website.describe" data-ng-if="Edit" data-ng-pattern="/^((https|http|ftp|rtsp|mms)://)?[a-z0-9A-Z]{3}\.[a-z0-9A-Z][a-z0-9A-Z]{0,61}?[a-z0-9A-Z]\.com|net|cn|cc (:s[0-9]{1-4})?/$/"/>
+                </td>
+                <td>
+                    <div class="iphone-toggle-buttons">
+                        <label><input type="checkbox" data-ng-model="Myinfo.website.public" /><span>checkbox 0</span></label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- End .data -->
+    <div class="bar">
+    	<h3>ACCOUNT PASSWORD</h3>
+        <div class="button-group" data-ng-show="switchPassword === true;">
+            <a href="javascript:;" class="btn btn-secondary" data-ng-click="savePassword()">Save Password</a>
+            <a href="javascript:;" class="btn btn-primary" data-ng-click="cancelPassword()">Cancel</a>
+        </div>
+        <a href="javascript:;" class="link link-change" data-ng-hide="switchPassword === true;" data-ng-click="switchPassword=!switchPassword">Change Password</a>
+    </div>
+    <!-- End .well -->
+    <div class="data password-data" data-ng-form name="passwordForm">
+    	<table>
+            <tr>
+                <th>Current Password</th>
+                <td class="details">
+                    <span data-ng-hide="switchPassword">{{password}}</span>
+                    <input type="password" id="password" name="password[0].password" 
+                        data-ng-model="password" 
+                        data-ng-show="switchPassword"
+                        data-ng-class="{true: 'error'}[submitted && passwordForm.password[0].password.$invalid]"
+                        required="required" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>New Password</th>
+                <td class="details">
+                    <input type="password" id="password_new" name="password_new" 
+                        data-ng-model="newpassword" 
+                        data-ng-show="switchPassword"
+                        data-ng-class="{true: 'error'}[submitted && passwordForm.password_new.$invalid]"
+                        required="required" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Confirm Password</th>
+                <td class="details">
+                    <span data-ng-hide="switchPassword">{{confirmpassword}}</span>
+                    <input type="password" id="password_confirm" name="password_confirm" 
+                        data-ng-show="switchPassword" 
+                        data-ng-model="confirmpassword" 
+                        data-ng-class="{true: 'error'}[submitted && passwordForm.password_confirm.$invalid]"
+                        pw-check="password_new" 
+                        required="required" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="bar last">
+    	<h3>ACCOUNT PAYMENT INFORMATION</h3>
+        <div class="button-group" data-ng-show="Edit1">
+            <a href="javascript:;" class="btn btn-secondary" data-ng-click="save(); Edit1=false">Save Info</a>
+            <a href="javascript:;" class="btn btn-primary" data-ng-click="cancel(); Edit1=false">Cancel</a>
+        </div>
+        <a href="javascript:;" class="link link-edit right" data-ng-show="!Edit1" data-ng-click="Edit1=!Edit1">Edit</a>
+    </div>
+    <!-- End .well -->
+    <div class="data info-data" data-ng-form name="infoForm">
+        <table>
+            <tr>
+                <th>Owner’s First Name</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.first_name" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.first_name" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Owner’s Last Name</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.last_name" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.last_name" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.email" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.email" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Date of Birth</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.dob" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.dob" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Home Street Address</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.home_addr" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.home_addr" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.city" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.city" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.state" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.state" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Zip Code</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.zip" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.zip" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr class="heading-row">
+                <th colspan="3"><span class="sub-header">FUNDING</span></th>
+            </tr>
+            <tr>
+                <th>Descriptor</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.funding.descriptor" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.funding.descriptor" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Destination</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.funding.destination" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.funding.destination" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.funding.email" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.funding.email" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Mobile Phone</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.funding.mobile" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.funding.mobile" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Account Number</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.funding.account_no" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.funding.account_no" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Routing Number</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.funding.routing_no" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.funding.routing_no" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr class="heading-row">
+                <th colspan="3"><span class="sub-header">ENTER ADDITIONAL INFO BELOW IF YOU ARE A REGISTERED BUSINESS</span></th>
+            </tr>
+            <tr>
+                <th>Legal Name</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.additional.legal_name" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.additional.legal_name" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>DBA Name</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.additional.dba_name" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.additional.dba_name" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Tax ID/SSN</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.additional.tax" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.additional.tax" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Street Address</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.additional.addr" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.additional.addr" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.additional.city" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.additional.city" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.additional.state" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.additional.state" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Zip Code</th>
+                <td class="details">
+                    <span class="w-pw" data-ng-bind="Myinfo.payment_info.additional.zip" data-ng-hide="Edit1"></span>
+                    <input type="text" data-ng-if="Edit1" data-ng-model="Editinfo.payment_info.additional.zip" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->

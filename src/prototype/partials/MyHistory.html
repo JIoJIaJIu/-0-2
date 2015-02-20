@@ -1,0 +1,32 @@
+<div class="container history">
+
+	<aside>
+  	<div class="profile">
+    	<div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+    </div>
+    <ul>
+    	<li><a href="#/FounderMyInfo">My Info</a></li>
+      <li><a href="#/Founder$hares">My Founder$hares</a></li>
+      <li><a class="active" href="javascript:;">My History</a></li>
+      <li><a href="#/FounderMyEmployees">Employees</a></li>
+    </ul>
+    <a href="#/VerifyAccount" class="note" data-ng-show="role ==='Founder'">Not a Verified Business</a>
+  </aside>
+  <!-- End Aside -->
+  <div class="main">
+  	<h2>My History</h2>
+    <ul class="header">
+    	<li class="action">Type of Activity</li>
+      <li class="details">Date of Activity</li>
+      <li class="amout">Amount</li>
+    </ul>
+    <ul data-ng-repeat="history in historyList">
+    	<li class="action"><strong>{{history.type}}</strong></li>
+      <li class="details">{{history.details}}</li>
+      <li class="amout">{{history.amount}}</li>
+    </ul>
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->

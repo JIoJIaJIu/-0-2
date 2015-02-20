@@ -1,0 +1,47 @@
+<!doctype html>
+<html data-ng-app="projectApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Project Mom and Pop</title>
+<link href="css/screen.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="i/favicon.ico" type="image/x-icon" />
+</head>
+
+<body data-ng-controller="mainCtrl" data-ng-class="{'modal-open': modal}">
+
+	<div class="wrapper">
+	
+        <!-- header-->
+        <header data-ng-include="'partials/module/header.html'"></header>
+        <!-- end header-->
+        
+        <!-- .main-container -->
+        <div class="main-container">
+            <div data-ng-view data-autoscroll="true"></div>
+        </div>
+        <!-- end .main-container -->
+        
+        <!-- footer -->
+        <footer data-ng-include="'partials/module/footer.html'"></footer>
+        <!-- end footer -->
+    
+  </div>
+	
+  <script src="js/jquery/jquery-2.1.1.js" type="text/javascript"></script>
+  <script src="js/angular/angular.js" type="text/javascript"></script>
+  <script src="js/angular/angular-resource.js" type="text/javascript"></script>
+  <script src="js/angular/angular-route.js" type="text/javascript"></script>
+  <script src="js/angular/angular-dropdowns.js" type="text/javascript"></script>
+  <script src="js/angular/ng-flow-standalone.js" type="text/javascript"></script>
+  <script src="js/angular/ng-infinite-scroll.js" type="text/javascript"></script>
+  <script src="js/angular/angular-local-storage.min.js" type="text/javascript"></script>
+  
+  <script src="js/directive.js" type="text/javascript"></script>
+  <script src="js/filter.js" type="text/javascript"></script>
+  <script src="js/service.js" type="text/javascript"></script>
+  <script src="js/controller.js" type="text/javascript"></script>
+  <script src="js/app.js" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<div class="container founder">
+
+	<aside>
+  	<div class="profile">
+    	<div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+    </div>
+    <ul>
+    	<li><a href="#/FounderMyInfo">My Info</a></li>
+        <li><a class="active" href="javascript:;">My Founder$hares</a></li>
+        <li><a href="#/FounderMyHistory">My History</a></li>
+        <li><a href="#/FounderMyEmployees">Employees</a></li>
+    </ul>
+    <a href="#/VerifyAccount" class="note" data-ng-show="role ==='Founder'">Not a Verified Business</a>
+  </aside>
+  <!-- End Aside -->
+  <div class="main">
+  	<h2>My Founder$hares</h2>
+    <div class="bar">
+    	<dl>
+      	<dt>Total amount Sold</dt>
+        <dd>{{founder$hares[0].amountSold}}</dd>
+      </dl>
+      <dl>
+      	<dt>Total F$’s</dt>
+        <dd>{{founder$hares[0].F$}}</dd>
+      </dl>
+      <dl>
+      	<dt>Total amount Redeemed</dt>
+        <dd>{{founder$hares[0].amountRedeemed}}</dd>
+      </dl>
+    </div>
+    <!-- End .bar -->
+    <div class="well">
+    	<ul>
+      	<li>Current Posting</li>
+        <li><a href="#/FounderF$Posting" class="btn btn-secondary">Create</a></li>
+        <li>Status</li>
+        <li>Options</li>
+      </ul>
+    </div>
+    <!-- End .well -->
+    <div class="data">
+    	<ul>
+      	<li>
+            <div class="business-info">
+                <div class="logo"><a href="#/FounderF$Posting"><img src="./i/image.jpg" data-ng-src="{{founder$hares[0].currentPosting[0].logo}}" alt="Pic" /></a></div>
+                <!-- End .logo -->
+                <a href="#/FounderF$Posting" class="link">{{founder$hares[0].currentPosting[0].name}}</a>
+                <div class="activation">Activation : {{founder$hares[0].currentPosting[0].activation}}</div>
+                <div class="info-bottom">
+                  <div class="discount">
+                    {{founder$hares[0].currentPosting[0].discount*100}}%<span>off</span>
+                  </div>
+                  <div class="date">{{founder$hares[0].currentPosting[0].date}}</div>
+                  <div class="percent">${{founder$hares[0].currentPosting[0].available}}<small>remain</small></div>
+                </div>
+            </div>
+            <!-- End .business-info -->
+        </li>
+        <li>
+        	<dl>
+          	<dt>Time remaining:</dt>
+            <dd>{{founder$hares[0].status[0].timeRemaining}}</dd>
+            <dt>Goal amount:</dt>
+            <dd>{{founder$hares[0].status[0].goalAmount}}</dd>
+            <dt>Goal reached:</dt>
+            <dd>{{founder$hares[0].status[0].goalAeached}}</dd>
+            <dt>Champions:</dt>
+            <dd>{{founder$hares[0].status[0].champions}}</dd>
+            <dt>Amount redeemed:</dt>
+            <dd>{{founder$hares[0].status[0].amountRedeemed}}</dd>
+          </dl>
+        </li>
+        <li>
+        	<a href="javascript:;" class="btn btn-secondary">See Champions</a>
+          <a href="javascript:;" class="btn btn-danger">Cancel Posting</a>
+        </li>
+      </ul>
+    </div>
+    <!-- End .data -->
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->

@@ -1,0 +1,59 @@
+<div class="container founder">
+
+	<aside>
+  	<div class="profile">
+    	<div class="thumb"><img src="./i/thumb.png" alt="Thumb" /></div>
+    </div>
+    <ul>
+    	<li><a href="#/PlatEmployeeMyInfo">My Info</a></li>
+      <li><a href="javascript:;" class="active">Founder Status</a></li>
+    </ul>
+  </aside>
+  <!-- End Aside -->
+  <div class="main status">
+  	<h2>Founder Status</h2>
+    <table>
+    	<thead>
+      	<tr>
+        	<th class="business">Business</th>
+          <th class="step">Step 1</th>
+          <th class="step">Step 2</th>
+          <th class="step">Step 3</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      	<tr data-ng-repeat="founder in founderList">
+        	<td>
+          	<img src="./i/logo-business.png" data-ng-src="./i/{{founder.icon}}" alt="Business" />
+            {{founder.name}}
+          </td>
+          <td>
+          	<label>
+            	<input type="checkbox" data-ng-model="founder.step1st" />
+            	<span></span>
+            </label>
+          </td>
+          <td>
+          	<label>
+            	<input type="checkbox" data-ng-model="founder.step2rd" />
+            	<span></span>
+            </label>
+          </td>
+          <td>
+          	<label>
+            	<input type="checkbox" data-ng-model="founder.step3rd" />
+            	<span></span>
+            </label>
+          </td>
+          <td>
+          	<a href="javascript:;" class="btn btn-primary btn-pay" data-ng-class="{'active':founder.active}" data-ng-click="active($index)">Activity</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- End .main -->
+  
+</div>
+<!-- End .container -->
