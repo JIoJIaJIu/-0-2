@@ -1,58 +1,155 @@
 angular.module('MomAndPop.services').service('Business', [
+    '$http',
     '$log',
-function ($log) {
+    'utils',
+    'CONFIG',
+function ($http, $log, utils, CONFIG) {
     /**
      * @param {String} id
      * @param {Function} callback
+     *   @param {String} err
+     *   @param {Object} business
      */
-    this.getBusiness = function () {
+    this.getBusiness = function (id, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business', id);
+
+        $log.debug('Requesting [GET]', URL);
+        $http.get(URL)
+            .success(function (business) {
+                callback(null, business);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
     /**
      * @param {Function} callback
+     *   @param {String} err
+     *   @param {Object} business
      */
-    this.getMyBusiness = function () {
+    this.getMyBusiness = function (callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me');
+
+        $log.debug('Requesting [GET]', URL);
+        $http.get(URL)
+            .sucess(function (business) {
+                callback(null, business);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
     /**
      * @param {Object} business
      * @param {ArrayBuffer} photo
      * @param {Function} callback
+     *   @param {String} err
+     *   @param {Object} business
      */
-    this.updateMyBusiness = function () {
+    this.updateMyBusiness = function (business, photo, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me');
+
+        $log.debug('Requesting [PUT]', URL);
+        $http.put(URL, business)
+            .success(function (data) {
+                callback(null, data);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
-    /** 
-     * @param {Object} card
+    /**
+     * @param {Object} creditCard
      * @param {Function} callback
+     *   @param {String} err
+     *   @param {Object} business
      */
-    this.verify = function () {
+    this.verify = function (creditCard, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/verify');
+
+        $log.debug('Requesting [POST]', URL);
+        $http.post(URL, creditCard)
+            .success(function (business) {
+                callback(null, business);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
     /**
      * @param {Function} callback
+     *   @param {String} err
+     *   @param {Array} users // mismatch with REST_API_SPECIFICATION
      */
-    this.getBusinessEmployees = function () {
+    this.getBusinessEmployees = function (callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees');
+
+        $log.debug('Requesting [GET]', URL);
+        $http.get(URL)
+            .success(function (users) {
+                callback(null, users);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
     /**
      * @param {Object} user
      * @param {Function} callback
+     *   @param {String} err
      */
-    this.addBusinessEmployee = function () {
+    this.addBusinessEmployee = function (user, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees');
+
+        $log.debug('Requesting [POST]', URL);
+        $http.post(URL, user)
+            .success(function (user) {
+                callback(null, user);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
     /**
      * @param {String} id
      * @param {Function} callback
+     *   @param {String} err
      */
-    this.deleteBusinessEmployee = function () {
+    this.deleteBusinessEmployee = function (id, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees', id);
+
+        $log.debug('Requesting [DELETE]', URL);
+        $http.delete(URL)
+            .success(function () {
+                callback(null);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
     /**
      * @param {Object} user
      * @param {Function} callback
+     *   @param {String} err
+     *   @param {Object} user
      */
-    this.updateBusinessEmployee = function () {
+    this.updateBusinessEmployee = function (user, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees', id);
+
+        $log.debug('Requesting [PUT]', URL);
+        $http.put(URL, user)
+            .success(function (user) {
+                callback(null, user);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 }]);
