@@ -4,7 +4,8 @@
 angular.module('MomAndPop.services').service('utils', function () {
     this.pathJoin = function () {
         var url = '';
-        _.forEach(arguments, function (str) {
+        for (var i = 0, length = arguments.length; i < length; i++) {
+            var str = arguments[i];
             if(str.substr(-1) == '/') {
                 str = str.substr(0, str.length - 1);
             }
@@ -13,7 +14,7 @@ angular.module('MomAndPop.services').service('utils', function () {
                 url += '/';
 
             url += str;
-        });
+        };
         return url;
     };
 });

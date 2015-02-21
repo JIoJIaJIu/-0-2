@@ -43,6 +43,6 @@ function ($log) {
     /**
      * @param {Function} callback
      */
-    this.getTotalRedeemedAmount = function () { 
+    this.getTotalRedeemedAmount = function () {
     }
 }]);

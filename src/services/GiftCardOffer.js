@@ -1,26 +1,53 @@
-define(['config'], function (config) {
-
-angular.module(config.moduleName).service('GiftCardOffer', [
+angular.module('MomAndPop.services').service('GiftCardOffer', [
+    '$http',
     '$log',
-function ($log) {
+    'CONFIG',
+    'utils',
+function ($http, $log, CONFIG, utils) {
     /** 
      * Creating offer
      *
      * @param {Object} offer
      * @param {Function} callback
-     *   @param {Error} err
-     *   @param {Object} offer
+     *   @param {String} err
      */
     this.create = function (offer, callback) {
     }
 
     /**
-     * @param {} criteria
+     * @param {Object} [criteria]
+     *   @key {Number} pageSize
+     *   @key {Number} pageNumber
+     *   @key {String} [sortBy]
+     *   @key {String} [sortOrder]
+     *   @key {String} [businessName]
+     *   @key {String} [businessType]
+     *   @key {String} [businessAddress]
+     *   @key {Array} [discountRange], array of numbers
+     *   @key {Array} [dateRange], array of datetimes
+     *   @key {String} [description]
+     *   @key {Array} [statuses], array of strings
+     *   @key {Array} [availableQuantityRange], array of numbers
+     *   @key {Array} [coordinates], array of numbers
      * @param {Function} callback
-     *   @param {Error} err
-     *   @param {Array} result, array of offers
+     *   @param {String} err
+     *   @param {Object} resp
+     *      @key {Number} totalPage
+     *      @key {Number} pageNumber
+     *      @key {Number} totalRecords
+     *      @key {Array} items
      */
     this.search = function (criteria, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'giftCardOffers');
+
+        $log.debug('Requesting [GET]', URL);
+        $http.get(URL, criteria)
+            .success(function (resp) {
+                callback(null, resp);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            })
     }
 
     /**
@@ -102,5 +129,3 @@ function ($log) {
     this.getComments = function () {
     }
 }]);
-
-});
