@@ -1,0 +1,19 @@
+[{
+    "_id": "54c1b1a39d64e6007777aaaa",
+    "userId": "123",
+    "timestamp": "2015-01-20",
+    "type": 1,
+    "details": "details1"
+}, {
+    "_id": "54c1b1a39d64e6007777aaab",
+    "userId": "123",
+    "timestamp": "2015-01-21",
+    "type": 2,
+    "details": "details2"
+}, {
+    "_id": "54c1b1a39d64e6007777aaac",
+    "userId": "321",
+    "timestamp": "2015-01-22",
+    "type": 1,
+    "details": "details3"
+}]

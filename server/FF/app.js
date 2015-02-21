@@ -42,7 +42,7 @@ app.use(tokenParser());
 
 app.use(require('./middlewares/router')());
 
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Initial DB for testing
@@ -51,5 +51,3 @@ require('./test_files/initialDB.js')(true);
 // Start the server
 app.listen(config.WEB_SERVER_PORT);
 winston.info('Express server listening on port ' + config.WEB_SERVER_PORT);
-
-app.use(express.static(path.join(__dirname, '../../build')));

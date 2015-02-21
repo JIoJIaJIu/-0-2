@@ -133,7 +133,7 @@ function wrapExpress(signature, fn) {
                 if(resStatus){
                     res.status(resStatus);
                 }
-                res.json(result);
+                res.status(200).json(result);
             }
         ], function(error) {
             var response = handleError(error, res);
