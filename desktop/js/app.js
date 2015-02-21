@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module("projectApp",["ngRoute","controllers","projectServices","directive","ngDropdowns","filters","flow", "infinite-scroll", 'LocalStorageModule']);
+var app = angular.module("projectApp",["ngRoute","controllers","projectServices","directive","ngDropdowns","filters","flow", "infinite-scroll", 'LocalStorageModule', 'MomAndPop.services', 'MomAndPop.config']);
 
 // Initialize the main module
 app.run(['$rootScope', '$location', '$window', function ($rootScope, $location,  $window) {
