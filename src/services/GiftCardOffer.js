@@ -123,9 +123,21 @@ function ($http, $log, CONFIG, utils) {
     }
 
     /**
-     * @param {String} id
+     * @param {String} offerId
      * @param {Function} callback
+     *   @param {String} err
+     *   @param {Array} comments
      */
-    this.getComments = function () {
+    this.getComments = function (offerId, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'giftCardOffers', offerId, 'comments');
+
+        $log.debug('Requesting [GET]', URL);
+        $http.get(URL)
+            .success(function (resp) {
+                callback(null, resp);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            })
     }
 }]);
