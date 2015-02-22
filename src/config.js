@@ -6,7 +6,7 @@ var config = {
      * e.g. http://host.com/momandpop/
      *
      **/
-    REST_SERVICE_BASE_URL: 'http://localhost:3000',
+    REST_SERVICE_BASE_URL: 'http://localhost:8000',
 
     /**
      * This is the message template for the friend invitation email.
