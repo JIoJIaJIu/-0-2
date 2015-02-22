@@ -6,7 +6,7 @@ var path = require('path');
 var OUTPUT = 'build';
 
 gulp.task('desktop', ['desktop prototype', 'build desktop']);
-gulp.task('mobile', ['mobile prototype']);
+gulp.task('mobile', ['mobile prototype', 'build mobile']);
 
 gulp.task('clean', function () {
     del(OUTPUT);
@@ -31,6 +31,19 @@ gulp.task('build desktop', function () {
         .pipe(gulp.dest(path.join(OUTPUT, 'i')) );
 });
 
+gulp.task('build mobile', function () {
+    gulp.src(['src/*.js', 'src/services/**/*', 'src/mobile/**/*'])
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest(OUTPUT));
+
+    gulp.src('server/FF/public/i/*')
+        .pipe(gulp.dest(path.join(OUTPUT, 'i')) );
+});
+
 gulp.task('watch desktop', ['desktop'], function () {
     gulp.watch(['src/*.js', 'src/services/**/*', 'src/desktop/**/*'], ['build desktop']);
+});
+
+gulp.task('watch mobile', ['mobile'], function () {
+    gulp.watch(['src/*.js', 'src/services/**/*', 'src/mobile/**/*'], ['build mobile']);
 });

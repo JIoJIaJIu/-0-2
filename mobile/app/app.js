@@ -5,7 +5,9 @@ var app = angular
         'ngRoute',
         'ngTouch',
         'ui.bootstrap',
-        'MomAndPop.controllers'
+        'MomAndPop.controllers',
+        'MomAndPop.services',
+        'MomAndPop.config'
     ])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
