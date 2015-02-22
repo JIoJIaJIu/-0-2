@@ -16,7 +16,7 @@ or
 ## Starting server (proxy to 3 servers)
 
 * cd server
-* ./startup.sh
+* ./setup.sh
 * npm install
 * node server.js
 * open http://localhost:8000 (by default)
