@@ -3,4 +3,9 @@
     "userId": "54da325b5489203743520c01",
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmF0aW9uIjoxNDIzNzU3MTM3NTc1fQ.CoSib_suyzRiptm0tP5g0IEkaZi5sZMbBkOzAncDUpU",
     "expirationDate": "2015-02-12T16:05:37.575Z"
+}, {
+    "_id": "54dc0c016da9597e1fc15b21",
+    "userId": "54da325b5489203743520c98",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmF0aW9uIjoxNDU2MTIyMzIzMTk2fQ.948W5m78G1XrtZN4Etsk0Bger2safzRRU9UrNVTli8w",
+    "expirationDate": "1456122323196"
 }]

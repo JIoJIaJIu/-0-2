@@ -172,6 +172,7 @@ exports.authenticateWithSessionToken = function(token, callback) {
  * @param  {String}       userId            userId of user to generate token for
  * @param  {Function}     callback          callback function
  */
+
 exports.generateSessionToken = function(userId, callback) {
     var dateObj = new Date();
     var millis = dateObj.getTime() + config.SESSION_TOKEN_DURATION;
