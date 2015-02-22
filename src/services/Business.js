@@ -11,7 +11,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {Object} business
      */
     this.getBusiness = function (id, callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business', id);
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses', id);
 
         $log.debug('Requesting [GET]', URL);
         $http.get(URL)
@@ -29,7 +29,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {Object} business
      */
     this.getMyBusiness = function (callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me');
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses/me');
 
         $log.debug('Requesting [GET]', URL);
         $http.get(URL)
@@ -49,7 +49,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {Object} business
      */
     this.updateMyBusiness = function (business, photo, callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me');
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses/me');
 
         $log.debug('Requesting [PUT]', URL);
         $http.put(URL, business)
@@ -68,7 +68,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {Object} business
      */
     this.verify = function (creditCard, callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/verify');
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses/me/verify');
 
         $log.debug('Requesting [POST]', URL);
         $http.post(URL, creditCard)
@@ -86,7 +86,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {Array} users // mismatch with REST_API_SPECIFICATION
      */
     this.getBusinessEmployees = function (callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees');
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses/me/employees');
 
         $log.debug('Requesting [GET]', URL);
         $http.get(URL)
@@ -104,7 +104,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {String} err
      */
     this.addBusinessEmployee = function (user, callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees');
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses/me/employees');
 
         $log.debug('Requesting [POST]', URL);
         $http.post(URL, user)
@@ -122,7 +122,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {String} err
      */
     this.deleteBusinessEmployee = function (id, callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees', id);
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses/me/employees', id);
 
         $log.debug('Requesting [DELETE]', URL);
         $http.delete(URL)
@@ -141,7 +141,7 @@ function ($http, $log, utils, CONFIG) {
      *   @param {Object} user
      */
     this.updateBusinessEmployee = function (user, callback) {
-        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'business/me/employees', id);
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'businesses/me/employees', id);
 
         $log.debug('Requesting [PUT]', URL);
         $http.put(URL, user)

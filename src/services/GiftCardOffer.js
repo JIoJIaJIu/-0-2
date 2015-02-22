@@ -32,7 +32,7 @@ function ($http, $log, CONFIG, utils) {
      * @param {Function} callback
      *   @param {String} err
      *   @param {Object} resp
-     *      @key {Number} totalPage
+     *      @key {Number} totalPages
      *      @key {Number} pageNumber
      *      @key {Number} totalRecords
      *      @key {Array} items
@@ -41,7 +41,7 @@ function ($http, $log, CONFIG, utils) {
         var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'giftCardOffers');
 
         $log.debug('Requesting [GET]', URL);
-        $http.get(URL, criteria)
+        $http.get(URL, {params: criteria})
             .success(function (resp) {
                 callback(null, resp);
             })
@@ -107,11 +107,21 @@ function ($http, $log, CONFIG, utils) {
     }
 
     /**
-     * @param {String} id
+     * @param {String} offerId
      * @param {Object} comment
      * @param {Function} callback
      */
-    this.addComment = function () {
+    this.addComment = function (offerId, comment, callback) {
+        var URL = utils.pathJoin(CONFIG.REST_SERVICE_BASE_URL, 'giftCardOffers', offerId, 'comments');
+
+        $log.debug('Requesting [POST]', URL);
+        $http.post(URL, comment)
+            .success(function (comment) {
+                callback(null, comment);
+            })
+            .error(function (resp) {
+                callback(resp && resp.error);
+            });
     }
 
     /**

@@ -9,4 +9,8 @@ function ($http) {
     this.logout = function () {
         $http.defaults.headers.common.Authorization = null; 
     }
+
+    this.getUserId = function () {
+        return '54da325b5489203743520c98';
+    }
 }]);
