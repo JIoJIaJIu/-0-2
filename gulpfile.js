@@ -23,11 +23,11 @@ gulp.task('mobile prototype', ['clean'], function () {
 });
 
 gulp.task('build desktop', function () {
-    gulp.src(['src/config.js', 'src/services/**/*', 'src/controllersForDesktop/**/*'])
+    gulp.src(['src/*.js', 'src/services/**/*', 'src/desktop/**/*'])
         .pipe(concat('app.js'))
         .pipe(gulp.dest(OUTPUT));
 });
 
-gulp.task('watch1', ['default'], function () {
-    gulp.watch(['src/config.js', 'src/services/**/*', 'src/controllersForDesktop/**/*'], ['build1']);
+gulp.task('watch desktop', ['desktop'], function () {
+    gulp.watch(['src/*.js', 'src/services/**/*', 'src/desktop/**/*'], ['build desktop']);
 });
