@@ -3551,13 +3551,20 @@ div.percentage p:nth-child(2){
 }
 .circle-info{
     width: 88px;
-    padding: 25px 5px; 
+    margin: 15px 5px; 
     border-radius: 50%;
     text-align: center;
     color: #333844;
     font-weight: bold;
     cursor: pointer;
     font-size:13px;
+    position: relative;
+}
+
+.circle-info img {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .business-name p{

@@ -13,7 +13,7 @@ controllers.controller("mainCtrl",function($scope,$rootScope, DataService, $loca
         $scope.hadLogin = false;
 
         // store search data
-        $scope.search = {};
+        $scope.searched = {};
 
 		var rootRole =  localStorageService.get("role");
 		if(!rootRole) $scope.role = null;
@@ -62,16 +62,6 @@ controllers.controller("mainCtrl",function($scope,$rootScope, DataService, $loca
 					default:
 				}
 			}
-	    };
-
-	    // mock up add to card
-	    $scope.addToCard = function () {
-	    	if($scope.hadLogin) {
-	    		$location.path('/ShoppingCart');
-	    	} else {
-	    		$scope.startLogin = true;
-	    		disableScroll();
-	    	}
 	    };
 
 	    // get role
@@ -129,53 +119,6 @@ controllers.controller("mainCtrl",function($scope,$rootScope, DataService, $loca
 controllers.controller('loginCtrl', ['$scope',
     function ($scope) {
 		
-	}
-]);
-
-//Home Controller
-controllers.controller('homeCtrl', ['$scope', 'DataService', '$timeout',
-    function ($scope, DataService, $timeout) {
-        $scope.pause = false;
-        $scope.check = false;
-        // display view details
-    	$scope.display = false;
-  		$scope.showInfo = function(item){
-  			$scope.display = true;
-  			$scope.arrayList = item;
-  		};
-
-        // close view details
-  		$scope.closeInfo = function () {
-  			$scope.display = false;
-  		};
-
-  		// add comment
-  		$scope.checkComment = function(){
-  			$scope.check = true;
-  		};
-
-        // data content Home
-	    var HomePromise = DataService.query('Home');
-	        HomePromise.then(function(data) {
-	            $scope.Home = data;
-                if(window.location.hash.indexOf('search')!== -1) {
-                    $scope.Home.title = "Search Result";
-                }
-	        }, function(data) {});
-
-	    // mock up infinite scroll
-	    $scope.loadMore = function() {
-	    	if($scope.search.name != undefined && $scope.search.name != '') return;
-	    	if($scope.Home && $scope.Home.listItem.length <= 24 && !$scope.pause) {
-		    	$scope.pause = true;
-		    	$timeout(function () {
-			    	for(var i = 0; i < 4; i++) {
-		    			$scope.Home.listItem.push(angular.copy($scope.Home.more));
-		    		}
-		    		$scope.pause = false;
-		    	}, 800);
-		    }
-	    };
 	}
 ]);
 

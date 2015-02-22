@@ -1,24 +1,24 @@
 <!-- content -->
 <div class="home-list" data-infinite-scroll="loadMore()">
 	<dl class="clearfix">
-		<dt data-ng-bind="Home.title"></dt>
+		<dt data-ng-bind="title"></dt>
 		<dd>
-			<div data-ng-click="showInfo(item)" class="item clearfix" data-ng-repeat="item in Home.listItem | filter:search">
-				<p class="item-logo-section"><span class="item-logo" data-ng-bind="item.logo"></span></p>
-				<p data-ng-bind="item.name" ></p>
+			<div data-ng-click="selectOffer(item)" class="item clearfix" data-ng-repeat="item in Home.result">
+				<p class="item-logo-section"><img src="/i/logo-business.png" data-ng-src="{{item.businessPicture}}"/></p>
+				<p data-ng-bind="item.businessName" ></p>
                 <p class="item-info">
-                    <span data-ng-bind="item.activation"></span>
-                    <span data-ng-bind="item.data"></span>
-                    <span data-ng-bind="item.time"></span>
+                    <span>Activation:</span>
+                    <span>{{item.activationDateTime | date:'MM/d/yyyy'}}</span>
+                    <span>{{item.activationDateTime | date:'shortTime'}}</span>
                 </p>
 				<section class="details clearfix">
 					<div class="left">
-						<label data-ng-bind="item.sale" class="sale"></label>
-						<span class="font-size14" data-ng-bind="item.onOff"></span>
+						<label class="sale">{{item.discount}}%</label>
+						<span class="font-size14">{{item.status}}</span>
 						<hr/>
-						<label data-ng-bind="item.expiration" class="expiration"></label>
+						<label class="expiration">{{item.expirationDate | date:'MM/d/yyyy'}}</label>
 					</div>
-					<div class="left radial-progress" data-progress="{{item.progess}}">
+					<div class="left radial-progress" data-progress="{{item.totalQuantity}}">
 						<div class="circle">
 							<div class="shadow "></div>
 							<div class="mask full">
@@ -31,7 +31,7 @@
 						</div>
 						<div class="inset">
 							<div class="percentage">
-								<p><span>$</span><span class="progress">{{item.progess}}</span></p>
+								<p><span></span><span class="progress">{{item.availableQuantity}}</span></p>
 								<p>remain</p>
 							</div>
 						</div>
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 				</div>
-				<span>Loading more 4 gift cards [from 28]</span>
+				<span>Loading more {{Home.pageSize}} gift cards [from {{Home.pageSize * Home.totalPages}}]</span>
 			</div>
 		</dd>
 	</dl>
@@ -59,21 +59,21 @@
 					<div class="view-details">
 						<div class="view-info">
 							<div class="name-card">
-								<span class="circle-info"><b>{{arrayList.logo}}</b></span>
+								<span class="circle-info"><img src="/i/logo-business.png" data-ng-src="{{Home.selectedOffer.businessPicture}}"/></span>
 								<div class="business-name">
-									<p class="founder margin-left7 margin-top10" >{{arrayList.name}}</p>
-									<p class="business">{{arrayList.founderName}}</p>
+									<p class="founder margin-left7 margin-top10" >{{Home.selectedOffer.businessName}}</p>
+									<p class="business">{{Home.selectedOffer.businessName}}</p>
 								</div>
 							</div>
 							<div class="info-card margin-top5">
 								<div class="left margin-shop-card width105 float-left">
-									<label class="sale-shopping color-2 color-number" >{{arrayList.sale}}</label>
-									<span class="onOff-shopping " >{{arrayList.onOff}}</span>
-									<p><label class="expiration-shopping border-top1" >{{arrayList.expiration}}</label></p>
+									<label class="sale-shopping color-2 color-number" >{{Home.selectedOffer.discount}}%</label>
+									<span class="onOff-shopping " >{{Home.selectedOffer.status}}</span>
+									<p><label class="expiration-shopping border-top1" >{{Home.selectedOffer.expirationDate | date:'MM/d/yyyy'}}</label></p>
 								</div>
 						
 
-								<div class="left radial-progress margin-top10 float-left" data-progress="{{arrayList.progess}}">
+								<div class="left radial-progress margin-top10 float-left" data-progress="{{Home.selectedOffer.totalQuantity}}">
 									<div class="circle">
 										<div class="shadow bg-view"></div>
 										<div class="mask full">
@@ -86,7 +86,7 @@
 									</div>
 									<div class="inset bg-chart">
 										<div class="percentage">
-											<p class="font-view"><span>$</span><span class="progress progess1">{{arrayList.progess}}</span></p>
+											<p class="font-view"><span></span><span class="progress progess1">{{Home.selectedOffer.availableQuantity}}</span></p>
 											<p class="font-view top-re">remain</p>
 										</div>
 									</div>
@@ -94,81 +94,67 @@
 							</div>
 							<div class="add-card margin-top-7">
 								<p>
-									<img id="close" src="i/close.png" alt="close" data-ng-click="closeInfo()">
+									<img id="close" src="i/close.png" alt="close" data-ng-click="closeOffer()">
 								</p>
 								<p class="btn-add">
-									<a href="javascript:;" data-ng-click="addToCard()">Add to Cart</a>
+									<a href="javascript:;" data-ng-click="addToShoppingCart()">Add to Cart</a>
 								</p>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<div class="description">
 							<div class="description-1">
-								<p>
-									<span class="text">Creation Date</span>
-									<i>:</i>
-									<span class="date">{{arrayList.data}} {{arrayList.time}}</span>
-								</p>
 								<p >
 									<span class="text">Activation Date</span>
 									<i>:</i>
-									<span class="date">{{arrayList.data}} {{arrayList.time}}</span>
+									<span class="date">{{Home.selectedOffer.activationDateTime | date:'MM/d/yyyy'}} {{Home.selectedOffer.activationDateTime | date:'shortTime'}}</span>
+								</p>
+								<p>
+									<span class="text">End Date</span>
+									<i>:</i>
+									<span class="date">{{Home.selectedOffer.endDateTime | date:'MM/d/yyyy'}} {{Home.selectedOffer.endDateTime | date:'shortTime'}}</span>
 								</p>
 								<p class="margin-bottom8">
                                     <a href="#/ReportAbuse" class="text report-abuse">Report Abuse</a>
 								</p>
-								<div class="location margin-top15">
-									<iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d382377.4987444238!2d-100.98401202067981!3d41.5189174039465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87762ca8edfebd91%3A0x58fab993be2c8060!2sUnnamed+Rd%2C+North+Platte%2C+NE+69101%2C+Hoa+K%E1%BB%B3!5e0!3m2!1svi!2s!4v1422146442613" ></iframe>
-								</div>
+								<div class="location margin-top15" id="map"></div>
 								<div class="clearfix"></div>
 								<p class="margin-top10">
 									<span class="text width50">Hours</span>
 									<i>:</i>
-									<span class="date">{{arrayList.hours}}</span>
+									<span class="date">{{Home.business.businessHours}}</span>
 								</p>
 								<p class="margin-top3">
 									<span class="text width50">Phone</span>
 									<i>:</i>
-									<span class="date">{{arrayList.phone}}</span>
+									<span class="date">{{Home.business.telephoneNumber}}</span>
 								</p>
 							</div>
 							<div class="description-2">
 								<p class="title">Description</p>
-								<p class="des margin-top10 top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. </p>
-								<p class="title margin-top19">Conditions</p>
-								<ul class="margin-top4">
-									<li>• Lorem ipsum dolor sit amet,</li>
-									<li>• consectetur adipiscing elit. Aenean euismod bibendum laoreet.</li>
-									<li>• Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</li>
-									<li>• Proin sodales pulvinar tempor.</li>
-								</ul>
+								<p class="des margin-top10 top">{{Home.selectedOffer.description}}</p>
+                                <div ng-if="selectedOffer.condition">
+                                    <p class="title margin-top19">Conditions</p>
+                                    <ul class="margin-top4">
+                                        <li>{{Home.selectedOffer.condition}}</li>
+                                    </ul>
+                                </div>
 							</div>	
 							<div class="description-3">
 								<p class="description-title">
 									<span class="comment">Comment</span>
 								</p>
-                                <textarea placeholder="Add a comment" class="txtAddCm" ></textarea>
+                                <textarea placeholder="Add a comment" class="txtAddCm" data-ng-model="Home.myComment"></textarea>
+								<p class="btn-add">
+                                    <a href="javascript:;" data-ng-click="postComment()">Post Comment</a>
+                                </p>
 								<div class="comment-detail" id="ex3">
-									<div class="list-comment">
+									<div class="list-comment" ng-repeat="comment in Home.comments">
 										<div class="comment-info">
-											<p class="comment-name">{{arrayList.username}}</p>
-											<p class="comment-date margin-bottom4">{{arrayList.dateComment}}</p>
+											<p class="comment-name">{{comment.userId}}</p>
+											<p class="comment-date margin-bottom4">{{comment.timestamp | date:'EEEE, MM/dd/yyyy - HH:mm'}}</p>
 										</div>
-										<p class="com-view">{{arrayList.desComment}}</p>
-									</div>
-									<div class="list-comment">
-										<div class="comment-info">
-											<p class="comment-name">{{arrayList.username}}</p>
-											<p class="comment-date margin-bottom4">{{arrayList.dateComment}}</p>
-										</div>
-										<p class="com-view">{{arrayList.desComment}}</p>
-									</div>
-									<div class="list-comment">
-										<div class="comment-info">
-											<p class="comment-name">{{arrayList.username}}</p>
-											<p class="comment-date margin-bottom4">{{arrayList.dateComment}}</p>
-										</div>
-										<p class="com-view">{{arrayList.desComment}}</p>
+										<p class="com-view">{{comment.comment}}</p>
 									</div>
 								</div>
 							</div>
@@ -182,9 +168,9 @@
 								<span class="color-4">in</span>
 							</div>
 							<div class="share-link">
-								<span class="lbl-link">Link :</span>
-								<input type="text" name="link" class="link" value="{{arrayList.link}}">
-								<a href="javascript:;">Refer to friend</a>
+								<span class="lbl-link">Email :</span>
+								<input type="email" name="email" class="link" data-ng-model="Home.friendEmail">
+								<a href="javascript:;" data-ng-click="emailToFriend()">Email to friend</a>
 							</div>
 							<div class="clearfix"></div>
 						</div>
