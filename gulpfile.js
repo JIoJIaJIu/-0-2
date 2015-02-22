@@ -26,6 +26,9 @@ gulp.task('build desktop', function () {
     gulp.src(['src/*.js', 'src/services/**/*', 'src/desktop/**/*'])
         .pipe(concat('app.js'))
         .pipe(gulp.dest(OUTPUT));
+
+    gulp.src('server/FF/public/i/*')
+        .pipe(gulp.dest(path.join(OUTPUT, 'i')) );
 });
 
 gulp.task('watch desktop', ['desktop'], function () {
