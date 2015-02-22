@@ -58,7 +58,8 @@ var BusinessService = {
     get: function(id, callback) {
         Business.findOne({
             _id: id
-        }).populate("type").exec(callback);
+        }).exec(callback);
+    //    }).populate("type").exec(callback);
     },
 
 

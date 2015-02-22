@@ -28,6 +28,9 @@ var operationTypes = {
     PUT: 'PUT'
 };
 
+var config = require('../configs/config');
+var url = require('url');
+
 /**
  * Validate the given entity.
  * Validation is performed before save or update operation
@@ -119,6 +122,12 @@ function searchGiftCardOffer(req, callback) {
         if (err) {
             return callback(err);
         }
+        /*
+        result.items.forEach(function (json) {
+            // resolve static url
+            json.businessPicture = url.resolve(config.STATIC_URL, json.businessPicture);
+        })
+        */
         callback(null, result);
     });
 }

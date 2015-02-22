@@ -29,7 +29,7 @@ var BusinessController = {
             } else if (!business) {
                 res.status(404).json('Business is not found with id: ' + req.params.id);
             } else {
-                res.status(200).json(business);
+                res.status(200).json(business.toObject());
             }
         });
     },

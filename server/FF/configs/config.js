@@ -13,6 +13,7 @@ module.exports = {
 
     //The MongoDB URL.
     MONGODB_URL: "mongodb://127.0.0.1:27017/project-mom",
+    STATIC_URL: "http://localhost:8000",
 
     //The MongoDB connection pool size.
     MONGODB_CONNECTION_POOL_SIZE: 50,
