@@ -13,27 +13,23 @@ or
 
 * gulp (npm install -g gulp)
 
-## Starting server (2 realizations)
+## Starting server (proxy to 3 servers)
 
-* cd server/project-mon-and-pop
+* cd server
+* ./startup.sh
 * npm install
 * node server.js
-* open http://localhost:10100 (by default)
-
-or
-
-* cd server/FF
-* npm install
-* node app.js
-* open http://localhost:3000 (by default)
+* open http://localhost:8000 (by default)
 
 ### Dependencies
 
 * Should be started mongod on :27017
+* Should be opened 3000, 3003, 10100 for 3 servers
 
-## Explanation
+##Notice
 
-### Frontend
-I would like use promises, but in UML was described callbacks.
-
-### Server
+* isBusinessHoursPublic and etc only for unauthorized users?
+* Mismatch description object in tuml (GiftCardOffer) and in REST_API_SPEC
+* No price for GiftCardOffer
+* In comments user ids are shown, because getting usernames for each comment is too expencive. And there are not user names in comment data
+* how to implement HomeCtrl.emailToFriend ?
